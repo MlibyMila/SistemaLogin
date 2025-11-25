@@ -15,13 +15,11 @@ public class LibroDao {
     public List<Libro> obtenerTodosLosLibros() {
         List<Libro> libros = new ArrayList<>();
 
-        String sql = "SELECT l.*, c.Nombre as NombreCategoria FROM Libros l " +
-                "LEFT JOIN Categorias c ON l.IdCategoria = c.IdCategoria " +
-                "WHERE l.Estado = 1";
+        String sql = "SELECT l.*, c.Nombre as NombreCategoria FROM Libros l "
+                + "LEFT JOIN Categorias c ON l.IdCategoria = c.IdCategoria "
+                + "WHERE l.Estado = 1";
 
-        try (Connection con = ConexionSQLServer.getConexion();
-             PreparedStatement pstmt = con.prepareStatement(sql);
-             ResultSet rs = pstmt.executeQuery()) {
+        try (Connection con = ConexionSQLServer.getConexion(); PreparedStatement pstmt = con.prepareStatement(sql); ResultSet rs = pstmt.executeQuery()) {
 
             while (rs.next()) {
                 Libro libro = new Libro();
@@ -46,12 +44,11 @@ public class LibroDao {
     public List<Libro> buscarLibrosPorCriterio(String criterio) {
         List<Libro> libros = new ArrayList<>();
 
-        String sql = "SELECT l.*, c.Nombre as NombreCategoria FROM Libros l " +
-                "LEFT JOIN Categorias c ON l.IdCategoria = c.IdCategoria " +
-                "WHERE (l.Titulo LIKE ? OR l.ISBN LIKE ?) AND l.Estado = 1";
+        String sql = "SELECT l.*, c.Nombre as NombreCategoria FROM Libros l "
+                + "LEFT JOIN Categorias c ON l.IdCategoria = c.IdCategoria "
+                + "WHERE (l.Titulo LIKE ? OR l.ISBN LIKE ?) AND l.Estado = 1";
 
-        try (Connection con = ConexionSQLServer.getConexion();
-             PreparedStatement pstmt = con.prepareStatement(sql)) {
+        try (Connection con = ConexionSQLServer.getConexion(); PreparedStatement pstmt = con.prepareStatement(sql)) {
 
             String criterioBusqueda = "%" + criterio + "%";
             pstmt.setString(1, criterioBusqueda);
@@ -79,4 +76,28 @@ public class LibroDao {
         return libros;
     }
 
+    public void registrarLibro(Libro libro) {
+        String sql = "INSERT INTO Libros ("
+                + "Titulo,"
+                + "ISBM,"
+                + "FechaPublicacion,"
+                + "Idioma,"
+                + "NumeroPaginas,"
+                + "Descripcion)"
+                + "VALUES (?,?,?,?,?,?))";
+        try (Connection con = ConexionSQLServer.getConexion(); PreparedStatement pstmt = con.prepareStatement(sql)) {
+            pstmt.setString(1, libro.getTitulo());
+            pstmt.setString(2, libro.getIsbn());
+            pstmt.setObject(3, libro.getFechaPublicacion());
+            pstmt.setString(4, libro.getIdioma());
+            pstmt.setInt(5, libro.getNumeroPaginas());
+            pstmt.setString(6, libro.getDescripcion());
+            pstmt.executeUpdate();
+            System.out.println("Se ha registrado de manera exitosa el libro " + libro.getTitulo());
+
+        } catch (SQLException e) {
+            System.out.println("Error al registrar libro : " + e.getMessage());
+        }
+
+    }
 }

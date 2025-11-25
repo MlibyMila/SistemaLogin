@@ -11,6 +11,7 @@ import VistaNew.RegistroView;
 import java.time.LocalDateTime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class LogInControlador {
@@ -22,6 +23,11 @@ public class LogInControlador {
         this.vista = vista;
         this.usuarioServise = usuarioServise;
         configuracionListeners();
+    }
+    
+    public void inicializarIconos(){
+        vista.ImgLogin.setIcon(new ImageIcon("../imagenes/loginIcon.jpg"));
+//                setIconImage(new ImageIcon(getClass().getResource("/imagenes/loginIcon.jpg")).getImage());
     }
 
     private void configuracionListeners() {

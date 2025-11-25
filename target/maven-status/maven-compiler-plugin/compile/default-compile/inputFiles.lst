@@ -10,12 +10,16 @@ C:\Users\Milagritos\Desktop\SistemaLogin\src\main\java\Main.java
 C:\Users\Milagritos\Desktop\SistemaLogin\src\main\java\Modelo\Usuario.java
 C:\Users\Milagritos\Desktop\SistemaLogin\src\main\java\Servise\impl\UsuarioServiseImpl.java
 C:\Users\Milagritos\Desktop\SistemaLogin\src\main\java\VistaNew\Menu.java
+C:\Users\Milagritos\Desktop\SistemaLogin\src\main\java\VistaNew\Catalogo\CatalogoViewEdit.java
 C:\Users\Milagritos\Desktop\SistemaLogin\src\main\java\VistaNew\LogIn.java
+C:\Users\Milagritos\Desktop\SistemaLogin\src\main\java\VistaNew\Catalogo\CatalogoViewAñadir.java
 C:\Users\Milagritos\Desktop\SistemaLogin\src\main\java\Dao\CategoriaDao.java
 C:\Users\Milagritos\Desktop\SistemaLogin\src\main\java\Dao\PrestamoDao.java
+C:\Users\Milagritos\Desktop\SistemaLogin\src\main\java\VistaNew\Catalogo\CatalogoViewPrincipal.java
 C:\Users\Milagritos\Desktop\SistemaLogin\src\main\java\Servise\impl\CategoriaServiseImpl.java
 C:\Users\Milagritos\Desktop\SistemaLogin\src\main\java\Modelo\Categoria.java
 C:\Users\Milagritos\Desktop\SistemaLogin\src\main\java\ControladorNew\MenuController.java
+C:\Users\Milagritos\Desktop\SistemaLogin\src\main\java\VistaNew\Catalogo\CatalogoViewDesabilitar.java
 C:\Users\Milagritos\Desktop\SistemaLogin\src\main\java\Servise\PrestamoServise.java
 C:\Users\Milagritos\Desktop\SistemaLogin\src\main\java\VistaNew\RegistroView.java
 C:\Users\Milagritos\Desktop\SistemaLogin\src\main\java\Servise\impl\LibroServiseImpl.java
