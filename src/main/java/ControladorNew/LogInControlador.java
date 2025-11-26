@@ -4,8 +4,6 @@ import Modelo.Usuario;
 import Service.UsuarioService;
 import Service.impl.UsuarioServiceImpl;
 import VistaNew.LogIn;
-import VistaNew.Menu;
-import VistaNew.RegistroView;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
