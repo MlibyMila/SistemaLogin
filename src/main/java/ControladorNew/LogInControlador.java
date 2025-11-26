@@ -25,12 +25,6 @@ public class LogInControlador {
         configuracionListeners();
     }
 
-    // public void inicializarIconos(){
-    // vista.ImgLogin.setIcon(new ImageIcon("../imagenes/loginIcon.jpg"));
-    // setIconImage(new
-    // ImageIcon(getClass().getResource("/imagenes/loginIcon.jpg")).getImage());
-    // }
-
     private void configuracionListeners() {
         vista.btn_ingresar.addActionListener((e) -> {
             login();
