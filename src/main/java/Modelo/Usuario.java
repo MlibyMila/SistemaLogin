@@ -18,7 +18,7 @@ public class Usuario {
     private List<Prestamo> prestamos;
 
     public Usuario() {
-        this.prestamos = new ArrayList<>();
+
     }
 
     public Integer getIdUsuario() {

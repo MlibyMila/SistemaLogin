@@ -1,28 +1,30 @@
 package ControladorNew;
 
-import Dao.UsuarioDao;
 import Modelo.Usuario;
-import Servise.UsuarioServise;
-import Servise.impl.UsuarioServiseImpl;
+import Service.UsuarioService;
+import Service.impl.UsuarioServiceImpl;
 import VistaNew.LogIn;
 import VistaNew.Menu;
 import VistaNew.RegistroView;
 
-import java.time.LocalDateTime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class LogInControlador {
 
     private LogIn vista;
-    private UsuarioServise usuarioServise;
+    private UsuarioService usuarioService;
 
-    public LogInControlador(LogIn vista, UsuarioServise usuarioServise) {
-        this.vista = vista;
-        this.usuarioServise = usuarioServise;
+    public LogInControlador() {
+        this.vista = new LogIn();
+        this.usuarioService = new UsuarioServiceImpl();
         configuracionListeners();
+    }
+
+    public void iniciarLogin() {
+        vista.setVisible(true);
+        vista.setLocationRelativeTo(null);
     }
 
     private void configuracionListeners() {
@@ -41,7 +43,7 @@ public class LogInControlador {
             return;
         }
 
-        Usuario usuario = usuarioServise.validarLogin(email, password);
+        Usuario usuario = usuarioService.validarLogin(email, password);
 
         if (usuario != null) {
             mostrarMensaje("LogIn exitoso!", "Exito!", JOptionPane.INFORMATION_MESSAGE);
@@ -50,36 +52,6 @@ public class LogInControlador {
         } else {
             mostrarMensaje("Email o contraseña incorrectos", "Error", JOptionPane.ERROR);
         }
-    }
-
-    private void register() {
-        String email = vista.txt_usuario.getText();
-        String password = new String(vista.txt_password.getPassword());
-
-        if (!validarCampo(email, password)) {
-            return;
-        }
-
-        UsuarioDao usuarioDao = new UsuarioDao();
-        if (usuarioDao.buscarUsuarioPorEmail(email) != null) {
-            mostrarMensaje("Este Email ya esta registrado!", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        Usuario nuevoUsuario = new Usuario();
-        nuevoUsuario.setNombres("Nuevo");
-        nuevoUsuario.setApellidos("Usuario");
-        nuevoUsuario.setEmail(email);
-        nuevoUsuario.setPasswordHash(password);
-        nuevoUsuario.setTelefono("");
-        nuevoUsuario.setDireccion("");
-        nuevoUsuario.setFechaCreacion(LocalDateTime.now());
-        nuevoUsuario.setEstado(true);
-
-        usuarioServise.registrarUsuario(nuevoUsuario);
-        mostrarMensaje("Registro exitoso!", "Exito!", JOptionPane.INFORMATION_MESSAGE);
-        limpiarCampos();
-
     }
 
     private boolean validarCampo(String email, String password) {
@@ -108,22 +80,16 @@ public class LogInControlador {
         JOptionPane.showMessageDialog(this.vista, mensaje, titulo, tipo);
     }
 
-    private void limpiarCampos() {
-        vista.txt_usuario.setText("");
-        vista.txt_password.setText("");
-    }
-
     private void abrirVentanaPrincipal(Usuario usuario) {
-        Menu menu = new Menu();
-        MenuController menuController = new MenuController(menu, usuario);
-        menu.setVisible(true);
+        MenuController menuController = new MenuController(usuario);
         vista.dispose();
+        menuController.iniciarMenu();
     }
 
     private void abrirVentanaRegistro() {
+        RegistroController registroController = new RegistroController();
         vista.dispose();
-        RegistroView principalView = new RegistroView();
-        principalView.setVisible(true);
+        registroController.iniciarRegistro();
     }
 
 }

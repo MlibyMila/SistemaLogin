@@ -83,7 +83,7 @@ public class Menu extends javax.swing.JFrame {
                 txtEmailUsuario = new javax.swing.JTextField();
                 txtNombreUsuario = new javax.swing.JTextField();
                 jLabel28 = new javax.swing.JLabel();
-                jButton12 = new javax.swing.JButton();
+                btnSalir = new javax.swing.JButton();
                 jLabel29 = new javax.swing.JLabel();
 
                 jLabel4.setText("jLabel4");
@@ -658,10 +658,10 @@ public class Menu extends javax.swing.JFrame {
                 jLabel28.setForeground(new java.awt.Color(0, 0, 0));
                 jLabel28.setText(" ¡Bienvenido al Sistema!");
 
-                jButton12.setBackground(new java.awt.Color(255, 255, 255));
-                jButton12.setFont(new java.awt.Font("Segoe UI Black", 1, 15)); // NOI18N
-                jButton12.setForeground(new java.awt.Color(255, 0, 51));
-                jButton12.setText("Salir");
+                btnSalir.setBackground(new java.awt.Color(255, 255, 255));
+                btnSalir.setFont(new java.awt.Font("Segoe UI Black", 1, 15)); // NOI18N
+                btnSalir.setForeground(new java.awt.Color(255, 0, 51));
+                btnSalir.setText("Salir");
 
                 jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/exit.png"))); // NOI18N
 
@@ -675,7 +675,7 @@ public class Menu extends javax.swing.JFrame {
                                                                                 javax.swing.GroupLayout.Alignment.LEADING)
                                                                                 .addGroup(jPanel10Layout
                                                                                                 .createSequentialGroup()
-                                                                                                .addComponent(jButton12)
+                                                                                                .addComponent(btnSalir)
                                                                                                 .addPreferredGap(
                                                                                                                 javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                                                 .addComponent(jLabel29)
@@ -754,7 +754,7 @@ public class Menu extends javax.swing.JFrame {
                                                                                 javax.swing.GroupLayout.Alignment.LEADING)
                                                                                 .addComponent(jLabel29,
                                                                                                 javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                .addComponent(jButton12,
+                                                                                .addComponent(btnSalir,
                                                                                                 javax.swing.GroupLayout.Alignment.TRAILING))
                                                                 .addGap(13, 13, 13)));
 
@@ -937,7 +937,7 @@ public class Menu extends javax.swing.JFrame {
         private javax.swing.JButton jButton1;
         private javax.swing.JButton jButton10;
         private javax.swing.JButton jButton11;
-        private javax.swing.JButton jButton12;
+        public javax.swing.JButton btnSalir;
         private javax.swing.JButton jButton2;
         private javax.swing.JButton jButton3;
         private javax.swing.JButton jButton4;
@@ -987,6 +987,6 @@ public class Menu extends javax.swing.JFrame {
         private javax.swing.JPanel jPanel9;
         public javax.swing.JTextField txtEmailUsuario;
         public javax.swing.JTextField txtNombreUsuario;
-        private javax.swing.JTextField txt_buscar;
+        public javax.swing.JTextField txt_buscar;
         // End of variables declaration//GEN-END:variables
 }

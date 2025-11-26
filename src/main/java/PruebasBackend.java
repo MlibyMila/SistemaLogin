@@ -3,12 +3,12 @@ import Dao.UsuarioDao;
 import Modelo.Libro;
 import Modelo.Prestamo;
 import Modelo.Usuario;
-import Servise.LibroServise;
-import Servise.PrestamoServise;
-import Servise.UsuarioServise;
-import Servise.impl.LibroServiseImpl;
-import Servise.impl.PrestamoServiseImpl;
-import Servise.impl.UsuarioServiseImpl;
+import Service.LibroService;
+import Service.PrestamoService;
+import Service.UsuarioService;
+import Service.impl.LibroServiceImpl;
+import Service.impl.PrestamoServiceImpl;
+import Service.impl.UsuarioServiceImpl;
 
 import java.sql.Connection;
 import java.time.LocalDateTime;
@@ -30,9 +30,9 @@ public class PruebasBackend {
         }
         System.out.println("---------------------------------");
 
-        UsuarioServise usuarioServise = new UsuarioServiseImpl();
-        LibroServise libroServise = new LibroServiseImpl();
-        PrestamoServise prestamoServise = new PrestamoServiseImpl();
+        UsuarioService usuarioService = new UsuarioServiceImpl();
+        LibroService libroService = new LibroServiceImpl();
+        PrestamoService prestamoService = new PrestamoServiceImpl();
 
         System.out.println("--- 2. Prueba de Registro de Usuario ---");
         String nuevoEmail = "milagros@gmail.com";
@@ -50,7 +50,7 @@ public class PruebasBackend {
             if (new UsuarioDao().buscarUsuarioPorEmail(nuevoEmail) != null) {
                 System.out.println("Error: El email " + nuevoEmail + " ya existe.");
             } else {
-                usuarioServise.registrarUsuario(nuevoUsuario);
+                usuarioService.registrarUsuario(nuevoUsuario);
                 System.out.println("Usuario registrado exitosamente: " + nuevoEmail);
                 System.out.println("Verifica la tabla [Usuario] en tu BD.");
             }
@@ -64,7 +64,7 @@ public class PruebasBackend {
         String emailPrueba = "test@test.com";
         String passPrueba = "passDePrueba123";
 
-        Usuario usuarioValidado = usuarioServise.validarLogin(emailPrueba, passPrueba);
+        Usuario usuarioValidado = usuarioService.validarLogin(emailPrueba, passPrueba);
 
         if (usuarioValidado != null) {
             System.out.println("Login exitoso para: " + usuarioValidado.getNombres());
@@ -73,15 +73,14 @@ public class PruebasBackend {
         }
         System.out.println("---------------------------------");
 
-
-
         System.out.println("--- 4. Prueba de Búsqueda de Libros ---");
         String criterioBusqueda = "Java";
 
-        List<Libro> librosEncontrados = libroServise.buscarLibrosPorCriterio(criterioBusqueda);
+        List<Libro> librosEncontrados = libroService.buscarLibrosPorCriterio(criterioBusqueda);
 
         if (!librosEncontrados.isEmpty()) {
-            System.out.println("Se encontraron " + librosEncontrados.size() + " libros para '" + criterioBusqueda + "':");
+            System.out
+                    .println("Se encontraron " + librosEncontrados.size() + " libros para '" + criterioBusqueda + "':");
             for (Libro libro : librosEncontrados) {
                 System.out.println("  - ID: " + libro.getIdLibro() + ", Título: " + libro.getTitulo());
             }
@@ -93,12 +92,14 @@ public class PruebasBackend {
         System.out.println("--- 5. Prueba de Préstamos Activos ---");
         int idUsuarioPrueba = 1;
 
-        List<Prestamo> prestamosActivos = prestamoServise.obtenerPrestamosActivos(idUsuarioPrueba);
+        List<Prestamo> prestamosActivos = prestamoService.obtenerPrestamosActivos(idUsuarioPrueba);
 
         if (!prestamosActivos.isEmpty()) {
-            System.out.println("Se encontraron " + prestamosActivos.size() + " préstamos activos para el usuario ID " + idUsuarioPrueba);
+            System.out.println("Se encontraron " + prestamosActivos.size() + " préstamos activos para el usuario ID "
+                    + idUsuarioPrueba);
             for (Prestamo p : prestamosActivos) {
-                System.out.println("  - ID Préstamo: " + p.getIdPrestamo() + ", Vence: " + p.getFechaDevolucionEsperada());
+                System.out.println(
+                        "  - ID Préstamo: " + p.getIdPrestamo() + ", Vence: " + p.getFechaDevolucionEsperada());
             }
         } else {
             System.out.println("No se encontraron préstamos activos para el usuario ID " + idUsuarioPrueba);
@@ -107,9 +108,9 @@ public class PruebasBackend {
 
         System.out.println("--- 5. Prueba de desactivación de usuario---");
 
-        usuarioServise.desabilitarUsuario(idUsuarioPrueba);
+        usuarioService.desabilitarUsuario(idUsuarioPrueba);
         System.out.println("Usuario desactivado exitosamente con ID -> " + idUsuarioPrueba);
-        
+
         System.out.println("---------------------------------");
 
     }
