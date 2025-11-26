@@ -24,11 +24,12 @@ public class LogInControlador {
         this.usuarioServise = usuarioServise;
         configuracionListeners();
     }
-    
-    public void inicializarIconos(){
-        vista.ImgLogin.setIcon(new ImageIcon("../imagenes/loginIcon.jpg"));
-//                setIconImage(new ImageIcon(getClass().getResource("/imagenes/loginIcon.jpg")).getImage());
-    }
+
+    // public void inicializarIconos(){
+    // vista.ImgLogin.setIcon(new ImageIcon("../imagenes/loginIcon.jpg"));
+    // setIconImage(new
+    // ImageIcon(getClass().getResource("/imagenes/loginIcon.jpg")).getImage());
+    // }
 
     private void configuracionListeners() {
         vista.btn_ingresar.addActionListener((e) -> {
@@ -118,9 +119,9 @@ public class LogInControlador {
         vista.txt_password.setText("");
     }
 
-    private void abrirVentanaPrincipal(Usuario usuario){
+    private void abrirVentanaPrincipal(Usuario usuario) {
         Menu menu = new Menu();
-        MenuController menuController = new MenuController(menu, usuario );
+        MenuController menuController = new MenuController(menu, usuario);
         menu.setVisible(true);
         vista.dispose();
     }

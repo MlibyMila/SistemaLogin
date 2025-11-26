@@ -19,7 +19,9 @@ public class LibroDao {
                 + "LEFT JOIN Categorias c ON l.IdCategoria = c.IdCategoria "
                 + "WHERE l.Estado = 1";
 
-        try (Connection con = ConexionSQLServer.getConexion(); PreparedStatement pstmt = con.prepareStatement(sql); ResultSet rs = pstmt.executeQuery()) {
+        try (Connection con = ConexionSQLServer.getConexion();
+                PreparedStatement pstmt = con.prepareStatement(sql);
+                ResultSet rs = pstmt.executeQuery()) {
 
             while (rs.next()) {
                 Libro libro = new Libro();
@@ -79,7 +81,7 @@ public class LibroDao {
     public void registrarLibro(Libro libro) {
         String sql = "INSERT INTO Libros ("
                 + "Titulo,"
-                + "ISBM,"
+                + "ISBN,"
                 + "FechaPublicacion,"
                 + "Idioma,"
                 + "NumeroPaginas,"

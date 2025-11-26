@@ -8,7 +8,9 @@ public class ConexionSQLServer {
 
     private static final String URL = "jdbc:sqlserver://localhost:1433;"
             + "databaseName=BD_BIBLIOTECA;"
-            + "user=sa;password=root;encrypt=true;trustServerCertificate=true;";
+            + "user=sa;password=root;"
+            + "encrypt=true;"
+            + "trustServerCertificate=true;";
 
     public static Connection getConexion() {
         Connection con = null;
