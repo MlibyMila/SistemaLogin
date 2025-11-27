@@ -37,11 +37,11 @@ public class CatalogoEdit extends javax.swing.JFrame {
         btn_gestorCatalogo = new javax.swing.JButton();
         btn_gestorAutores = new javax.swing.JButton();
         btn_gestorPrestamos = new javax.swing.JButton();
-        btn_salir = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        btn_salir1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -74,7 +74,7 @@ public class CatalogoEdit extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(232, 232, 232));
+        jPanel1.setBackground(new java.awt.Color(108, 187, 240));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.darkGray, java.awt.Color.white, java.awt.Color.lightGray, java.awt.Color.white));
@@ -117,11 +117,6 @@ public class CatalogoEdit extends javax.swing.JFrame {
             }
         });
 
-        btn_salir.setFont(new java.awt.Font("Segoe UI Black", 1, 15)); // NOI18N
-        btn_salir.setForeground(new java.awt.Color(255, 0, 51));
-        btn_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/exit.png"))); // NOI18N
-        btn_salir.setText("    Salir");
-
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ebook.png"))); // NOI18N
         jLabel8.setText("jLabel8");
 
@@ -132,6 +127,11 @@ public class CatalogoEdit extends javax.swing.JFrame {
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/transfer.png"))); // NOI18N
         jLabel11.setText("jLabel11");
+
+        btn_salir1.setBackground(new java.awt.Color(255, 0, 0));
+        btn_salir1.setFont(new java.awt.Font("Segoe UI Black", 1, 15)); // NOI18N
+        btn_salir1.setForeground(new java.awt.Color(255, 255, 255));
+        btn_salir1.setText("Salir");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -161,8 +161,8 @@ public class CatalogoEdit extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addComponent(jLabel7)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(btn_salir)))
+                        .addGap(71, 71, 71)
+                        .addComponent(btn_salir1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -192,7 +192,7 @@ public class CatalogoEdit extends javax.swing.JFrame {
                     .addComponent(btn_gestorPrestamos)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_salir)
+                .addComponent(btn_salir1)
                 .addGap(25, 25, 25))
         );
 
@@ -529,7 +529,7 @@ public class CatalogoEdit extends javax.swing.JFrame {
     public javax.swing.JButton btn_gestorCatalogo;
     public javax.swing.JButton btn_gestorPrestamos;
     public javax.swing.JButton btn_guardarEditLibro;
-    public javax.swing.JButton btn_salir;
+    public javax.swing.JButton btn_salir1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

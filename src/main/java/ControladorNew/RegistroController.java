@@ -3,7 +3,7 @@ package ControladorNew;
 import Modelo.Usuario;
 import Service.UsuarioService;
 import Service.impl.UsuarioServiceImpl;
-import VistaNew.RegistroView;
+import VistaNew.RegisterView;
 import java.time.LocalDateTime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -11,11 +11,11 @@ import javax.swing.JOptionPane;
 
 public class RegistroController {
     
-    private RegistroView view;
+    private RegisterView view;
     private UsuarioService service;
     
     public RegistroController() {
-        this.view = new RegistroView();
+        this.view = new RegisterView();
         this.service = new UsuarioServiceImpl();
         this.configuracionListeners();
     }

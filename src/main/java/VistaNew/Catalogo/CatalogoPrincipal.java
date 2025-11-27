@@ -38,11 +38,11 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
         btn_gestorCatalogo = new javax.swing.JButton();
         btn_gestorAutores = new javax.swing.JButton();
         btn_gestorPrestamos = new javax.swing.JButton();
-        btn_salir = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        btn_salir1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -65,7 +65,7 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(232, 232, 232));
+        jPanel1.setBackground(new java.awt.Color(108, 187, 240));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.darkGray, java.awt.Color.white, java.awt.Color.lightGray, java.awt.Color.white));
@@ -85,14 +85,17 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
         btn_GestorUsuario.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btn_GestorUsuario.setForeground(new java.awt.Color(0, 0, 0));
         btn_GestorUsuario.setText("Gestión de Usuario");
+        btn_GestorUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btn_gestorCatalogo.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btn_gestorCatalogo.setForeground(new java.awt.Color(0, 0, 0));
         btn_gestorCatalogo.setText("Gestión de Catálogo");
+        btn_gestorCatalogo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btn_gestorAutores.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btn_gestorAutores.setForeground(new java.awt.Color(0, 0, 0));
         btn_gestorAutores.setText("Gestión de Autores");
+        btn_gestorAutores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_gestorAutores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_gestorAutoresActionPerformed(evt);
@@ -102,16 +105,12 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
         btn_gestorPrestamos.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         btn_gestorPrestamos.setForeground(new java.awt.Color(0, 0, 0));
         btn_gestorPrestamos.setText("Gestión de Préstamos");
+        btn_gestorPrestamos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_gestorPrestamos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_gestorPrestamosActionPerformed(evt);
             }
         });
-
-        btn_salir.setFont(new java.awt.Font("Segoe UI Black", 1, 15)); // NOI18N
-        btn_salir.setForeground(new java.awt.Color(255, 0, 51));
-        btn_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/exit.png"))); // NOI18N
-        btn_salir.setText("    Salir");
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ebook.png"))); // NOI18N
         jLabel8.setText("jLabel8");
@@ -123,6 +122,12 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/transfer.png"))); // NOI18N
         jLabel11.setText("jLabel11");
+
+        btn_salir1.setBackground(new java.awt.Color(255, 0, 0));
+        btn_salir1.setFont(new java.awt.Font("Segoe UI Black", 1, 15)); // NOI18N
+        btn_salir1.setForeground(new java.awt.Color(255, 255, 255));
+        btn_salir1.setText("Salir");
+        btn_salir1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -152,8 +157,8 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addComponent(jLabel7)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
-                        .addComponent(btn_salir)))
+                        .addGap(67, 67, 67)
+                        .addComponent(btn_salir1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -183,8 +188,8 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
                     .addComponent(btn_gestorPrestamos)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_salir)
-                .addGap(25, 25, 25))
+                .addComponent(btn_salir1)
+                .addGap(27, 27, 27))
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -270,6 +275,7 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
         btn_añadirLibro.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         btn_añadirLibro.setForeground(new java.awt.Color(255, 255, 255));
         btn_añadirLibro.setText("+ Añadir Libro");
+        btn_añadirLibro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -285,6 +291,7 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
         btn_EditarLibro.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         btn_EditarLibro.setForeground(new java.awt.Color(255, 255, 255));
         btn_EditarLibro.setText("Editar Libro");
+        btn_EditarLibro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_EditarLibro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_EditarLibroActionPerformed(evt);
@@ -295,6 +302,7 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
         btn_desabilitarLibro.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         btn_desabilitarLibro.setForeground(new java.awt.Color(255, 255, 255));
         btn_desabilitarLibro.setText("- Desabilitar Libro");
+        btn_desabilitarLibro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -303,22 +311,20 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addComponent(jLabel9)
-                        .addGap(33, 33, 33)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel10))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btn_añadirLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btn_EditarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(135, 135, 135)
-                                .addComponent(btn_desabilitarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 784, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(btn_añadirLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_EditarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(135, 135, 135)
+                            .addComponent(btn_desabilitarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 784, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -412,7 +418,7 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btn_gestorAutores;
     private javax.swing.JButton btn_gestorCatalogo;
     private javax.swing.JButton btn_gestorPrestamos;
-    public javax.swing.JButton btn_salir;
+    public javax.swing.JButton btn_salir1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

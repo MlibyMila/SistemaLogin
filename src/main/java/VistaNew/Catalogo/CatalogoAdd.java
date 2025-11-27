@@ -74,7 +74,7 @@ public class CatalogoAdd extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(232, 232, 232));
+        jPanel1.setBackground(new java.awt.Color(108, 187, 240));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.darkGray, java.awt.Color.white, java.awt.Color.lightGray, java.awt.Color.white));
@@ -117,10 +117,10 @@ public class CatalogoAdd extends javax.swing.JFrame {
             }
         });
 
+        btn_salir.setBackground(new java.awt.Color(255, 0, 0));
         btn_salir.setFont(new java.awt.Font("Segoe UI Black", 1, 15)); // NOI18N
-        btn_salir.setForeground(new java.awt.Color(255, 0, 51));
-        btn_salir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/exit.png"))); // NOI18N
-        btn_salir.setText("    Salir");
+        btn_salir.setForeground(new java.awt.Color(255, 255, 255));
+        btn_salir.setText("Salir");
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ebook.png"))); // NOI18N
         jLabel8.setText("jLabel8");
@@ -161,7 +161,7 @@ public class CatalogoAdd extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addComponent(jLabel7)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(64, 64, 64)
+                        .addGap(79, 79, 79)
                         .addComponent(btn_salir)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -193,7 +193,7 @@ public class CatalogoAdd extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_salir)
-                .addGap(25, 25, 25))
+                .addGap(30, 30, 30))
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -263,7 +263,7 @@ public class CatalogoAdd extends javax.swing.JFrame {
         );
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.blue, java.awt.Color.white));
+        jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.lightGray));
         jPanel4.setForeground(new java.awt.Color(255, 255, 255));
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
@@ -420,7 +420,7 @@ public class CatalogoAdd extends javax.swing.JFrame {
         jLabel6.setText("AÑADIR  NUEVO LIBRO ");
 
         jLabel20.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel20.setFont(new java.awt.Font("Segoe UI Historic", 0, 12)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Segoe UI Historic", 1, 13)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(102, 102, 102));
         jLabel20.setText("Rellena los detalles para añadir un nuevo libro al catálogo");
 
