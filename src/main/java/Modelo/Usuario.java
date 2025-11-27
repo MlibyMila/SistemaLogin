@@ -1,7 +1,6 @@
 package Modelo;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Usuario {
@@ -11,7 +10,7 @@ public class Usuario {
     private String apellidos;
     private String email;
     private String passwordHash;
-    private String telefono;
+    private int telefono;
     private String direccion;
     private LocalDateTime fechaCreacion;
     private boolean estado;
@@ -61,11 +60,11 @@ public class Usuario {
         this.passwordHash = passwordHash;
     }
 
-    public String getTelefono() {
+    public int getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(String telefono) {
+    public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
 

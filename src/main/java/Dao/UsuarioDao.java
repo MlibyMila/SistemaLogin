@@ -22,7 +22,7 @@ public class UsuarioDao {
             pstmt.setString(2, usuario.getApellidos());
             pstmt.setString(3, usuario.getEmail());
             pstmt.setString(4, usuario.getPasswordHash());
-            pstmt.setString(5, usuario.getTelefono());
+            pstmt.setInt(5, usuario.getTelefono());
             pstmt.setString(6, usuario.getDireccion());
             pstmt.setObject(7, usuario.getFechaCreacion());
             pstmt.setBoolean(8, usuario.isEstado());
@@ -47,7 +47,7 @@ public class UsuarioDao {
                     usuario.setApellidos(rs.getString("Apellidos"));
                     usuario.setEmail(rs.getString("Email"));
                     usuario.setPasswordHash(rs.getString("PasswordHash"));
-                    usuario.setTelefono(rs.getString("Telefono"));
+                    usuario.setTelefono(rs.getInt("Telefono"));
                     usuario.setDireccion(rs.getString("Direccion"));
                     usuario.setFechaCreacion(rs.getObject("FechaCreacion", LocalDateTime.class));
                     usuario.setEstado(rs.getBoolean("Estado"));
@@ -73,7 +73,7 @@ public class UsuarioDao {
                 usuario.setApellidos(rs.getString("Apellidos"));
                 usuario.setEmail(rs.getString("Email"));
                 usuario.setPasswordHash(rs.getString("PasswordHash"));
-                usuario.setTelefono(rs.getString("Telefono"));
+                usuario.setTelefono(rs.getInt("Telefono"));
                 usuario.setDireccion(rs.getString("Direccion"));
                 usuario.setFechaCreacion(rs.getObject("FechaCreacion", LocalDateTime.class));
                 usuario.setEstado(rs.getBoolean("Estado"));
@@ -101,7 +101,7 @@ public class UsuarioDao {
             pstmt.setString(2, usuario.getApellidos());
             pstmt.setString(3, usuario.getEmail());
             pstmt.setString(4, usuario.getPasswordHash());
-            pstmt.setString(5, usuario.getTelefono());
+            pstmt.setInt(5, usuario.getTelefono());
             pstmt.setString(6, usuario.getDireccion());
             pstmt.setBoolean(7, usuario.isEstado());
             pstmt.setInt(8, usuario.getIdUsuario());

@@ -41,7 +41,7 @@ public class PruebasBackend {
         nuevoUsuario.setApellidos("Tafur");
         nuevoUsuario.setEmail(nuevoEmail);
         nuevoUsuario.setPasswordHash("test123");
-        nuevoUsuario.setTelefono("987654321");
+        nuevoUsuario.setTelefono(987654321);
         nuevoUsuario.setDireccion("Av. Prueba 123");
         nuevoUsuario.setFechaCreacion(LocalDateTime.now());
         nuevoUsuario.setEstado(true);

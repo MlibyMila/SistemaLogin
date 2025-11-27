@@ -2,15 +2,15 @@ package ControladorNew;
 
 import Modelo.Usuario;
 
-import VistaNew.Menu;
+import VistaNew.plantillaMenu;
 
 public class MenuController {
 
-    private Menu vista;
+    private plantillaMenu vista;
     private Usuario usuario;
 
     public MenuController(Usuario usuario) {
-        this.vista = new Menu();
+        this.vista = new plantillaMenu();
         this.usuario = usuario;
         this.cargarUsuario();
         this.configuracionListeners();
@@ -33,7 +33,7 @@ public class MenuController {
     }
 
     private void configuracionListeners() {
-        vista.btnSalir.addActionListener((e) -> iniciarLogin());
+        vista.btn_salir.addActionListener((e) -> iniciarLogin());
     }
 
 }

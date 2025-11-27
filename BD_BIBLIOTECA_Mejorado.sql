@@ -18,7 +18,7 @@ CREATE TABLE Usuario(
 	Apellidos VARCHAR(100) NOT NULL,
 	Email VARCHAR(200) UNIQUE NOT NULL,
 	PasswordHash NVARCHAR(100) NOT NULL,
-	Telefono VARCHAR(15),
+	Telefono INT,
 	Direccion VARCHAR(300),
 	FechaCreacion DATETIME DEFAULT GETDATE(),
 	Estado BIT DEFAULT 1
