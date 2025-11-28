@@ -12,17 +12,9 @@ public class ConexionSQLServer {
             + "encrypt=true;"
             + "trustServerCertificate=true;";
 
-    public static Connection getConexion() {
-        Connection con = null;
-        try {
-
-            con = DriverManager.getConnection(URL);
-            System.out.println("¡Conexión exitosa a SQL Server!");
-
-        } catch (SQLException e) {
-            System.err.println("Error al conectar a la base de datos:");
-            e.printStackTrace();
-        }
+    public static Connection getConexion() throws SQLException {
+        Connection con = DriverManager.getConnection(URL);
+        System.out.println("¡Conexión exitosa a SQL Server!");
         return con;
     }
 }

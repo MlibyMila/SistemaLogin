@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ControladorNew.GestorUsuario;
 
 import Modelo.Usuario;
@@ -12,19 +8,21 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Milagritos
- */
+import ControladorNew.LogInControlador;
+
 public class GesUsuarioEditControlador {
 
     private UsuarioEdit view;
     private UsuarioService service;
     private Usuario usuarioEdicion = null;
+    private Usuario usuario;
 
-    public GesUsuarioEditControlador() {
+    public GesUsuarioEditControlador(Usuario usuario) {
         this.view = new UsuarioEdit();
         this.service = new UsuarioServiceImpl();
+        this.usuario = usuario;
+        this.limpiarCampos();
+        this.cargarUsuario();
         this.configuracionListeners();
     }
 
@@ -33,15 +31,19 @@ public class GesUsuarioEditControlador {
         view.setLocationRelativeTo(null);
     }
 
-    public void configuracionListeners() {
-        view.btn_guardarEditUsuario.addActionListener(e -> procesarCambios());
-        view.btn_cancelarEditUsuario.addActionListener(e -> limpiarCampos());
-        view.btn_salir.addActionListener(e -> abrirUsuarioPrincipal());
+    public void cargarUsuario() {
+        view.txtEmailUsuario.setText(usuario.getEmail());
+        view.txtNombreUsuario.setText(usuario.getNombres() + " " + usuario.getApellidos());
     }
 
-    private void cargarDatosDeUusuario(Usuario usuario) {
+    public void configuracionListeners() {
+        view.btn_guardarEditUsuario.addActionListener(e -> procesarCambios());
+        view.btn_cancelarEditUsuario.addActionListener(e -> abrirMenuPrincipal());
+        view.btn_salir.addActionListener(e -> iniciarLogin());
+    }
+
+    public void cargarDatosDeUsuario(Usuario usuario) {
         this.usuarioEdicion = usuario;
-        view.txt_nombreEditUsuario.setText(usuario.getNombres());
         view.txt_nombreEditUsuario.setText(usuario.getNombres());
         view.txt_apellidoEditUsuario.setText(usuario.getApellidos());
         view.txt_emailEditUsuario.setText(usuario.getEmail());
@@ -79,7 +81,7 @@ public class GesUsuarioEditControlador {
             service.actualizarUsuario(usuarioEdicion); // Asumiendo que este método existe en tu Service
             mostrarMensaje("Usuario actualizado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             limpiarCampos();
-            abrirUsuarioPrincipal();
+            // abrirUsuarioPrincipal();
         } catch (Exception e) {
             mostrarMensaje("Error al actualizar: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -148,10 +150,16 @@ public class GesUsuarioEditControlador {
         view.txt_direccionEditUsuario.setText("");
     }
 
-    private void abrirUsuarioPrincipal() {
-        GesUsuarioPrincipalControlador gesUsuarioPrincipal = new GesUsuarioPrincipalControlador();
+    private void abrirMenuPrincipal() {
+        GesUsuarioPrincipalControlador gesUsuarioPrincipal = new GesUsuarioPrincipalControlador(usuario);
         view.dispose();
         gesUsuarioPrincipal.iniciarUsuarioPrincipal();
+    }
+
+    public void iniciarLogin() {
+        LogInControlador loginController = new LogInControlador();
+        view.dispose();
+        loginController.iniciarLogin();
     }
 
 }

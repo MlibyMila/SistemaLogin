@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ControladorNew.GestorUsuario;
 
 import Modelo.Usuario;
@@ -13,18 +9,20 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Milagritos
- */
+import ControladorNew.LogInControlador;
+
 public class GesUsuarioRegisterControlador {
 
     private UsuarioRegister view;
+    private Usuario usuario;
     private UsuarioService service;
 
-    public GesUsuarioRegisterControlador() {
+    public GesUsuarioRegisterControlador(Usuario usuario) {
         this.view = new UsuarioRegister();
+        this.usuario = usuario;
         this.service = new UsuarioServiceImpl();
+        this.limpiarCampos();
+        this.cargarUsuario();
         this.configuracionListeners();
     }
 
@@ -33,10 +31,16 @@ public class GesUsuarioRegisterControlador {
         view.setLocationRelativeTo(null);
     }
 
+    public void cargarUsuario() {
+        view.txtEmailUsuario.setText(usuario.getEmail());
+        view.txtNombreUsuario.setText(usuario.getNombres() + " " + usuario.getApellidos());
+    }
+
     private void configuracionListeners() {
         view.btn_guardarAddUsuario.addActionListener(e -> registrar());
         view.btn_cancelarAddUsuario.addActionListener(e -> limpiarCampos());
-        view.btn_salir.addActionListener(e -> abrirUsuarioPrincipal());
+        view.btn_cancelarAddUsuario.addActionListener(e -> abrirMenuPrincipal());
+        view.btn_salir.addActionListener(e -> iniciarLogin());
     }
 
     private void registrar() {
@@ -68,7 +72,7 @@ public class GesUsuarioRegisterControlador {
             service.registrarUsuario(nuevoUsuario);
             mostrarMensaje("Registro exitoso!", "Exito!", JOptionPane.INFORMATION_MESSAGE);
             limpiarCampos();
-            abrirUsuarioPrincipal();
+            // abrirUsuarioPrincipal();
         } catch (Exception e) {
             mostrarMensaje("Error al registrar: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
@@ -128,8 +132,8 @@ public class GesUsuarioRegisterControlador {
         view.txt_direccionAddUsuario.setText("");
     }
 
-    private void abrirUsuarioPrincipal() {
-        GesUsuarioPrincipalControlador gesUsuarioPrincipal = new GesUsuarioPrincipalControlador();
+    private void abrirMenuPrincipal() {
+        GesUsuarioPrincipalControlador gesUsuarioPrincipal = new GesUsuarioPrincipalControlador(usuario);
         view.dispose();
         gesUsuarioPrincipal.iniciarUsuarioPrincipal();
     }
@@ -141,6 +145,12 @@ public class GesUsuarioRegisterControlador {
             mostrarMensaje("Ingresar un numero telefonico valido", "Error", JOptionPane.INFORMATION_MESSAGE);
             return false;
         }
+    }
+
+    public void iniciarLogin() {
+        LogInControlador loginController = new LogInControlador();
+        view.dispose();
+        loginController.iniciarLogin();
     }
 
 }

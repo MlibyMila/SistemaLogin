@@ -35,7 +35,7 @@ public class PruebasBackend {
         PrestamoService prestamoService = new PrestamoServiceImpl();
 
         System.out.println("--- 2. Prueba de Registro de Usuario ---");
-        String nuevoEmail = "milagros@gmail.com";
+        String nuevoEmail = "test@test.com";
         Usuario nuevoUsuario = new Usuario();
         nuevoUsuario.setNombres("Milagros");
         nuevoUsuario.setApellidos("Tafur");
@@ -62,7 +62,7 @@ public class PruebasBackend {
         System.out.println("--- 3. Prueba de Login (Validación) ---");
 
         String emailPrueba = "test@test.com";
-        String passPrueba = "passDePrueba123";
+        String passPrueba = "test123";
 
         Usuario usuarioValidado = usuarioService.validarLogin(emailPrueba, passPrueba);
 
@@ -108,7 +108,7 @@ public class PruebasBackend {
 
         System.out.println("--- 5. Prueba de desactivación de usuario---");
 
-        usuarioService.desabilitarUsuario(idUsuarioPrueba);
+        usuarioService.deshabilitarUsuario(idUsuarioPrueba);
         System.out.println("Usuario desactivado exitosamente con ID -> " + idUsuarioPrueba);
 
         System.out.println("---------------------------------");

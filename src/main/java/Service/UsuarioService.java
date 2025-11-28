@@ -10,7 +10,11 @@ public interface UsuarioService {
 
     void actualizarUsuario(Usuario usuario);
 
-    void desabilitarUsuario(int idUsuario);
+    void deshabilitarUsuario(int idUsuario);
 
     Usuario validarLogin(String email, String passwordPlana);
+
+    Usuario buscarUsuarioPorEmail(String email);
+
+    Usuario buscarUsuarioPorId(int id);
 }

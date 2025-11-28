@@ -35,8 +35,11 @@ public class LogInControlador {
     }
 
     private void login() {
-        String email = vista.txt_usuario.getText();
-        String password = new String(vista.txt_password.getPassword());
+        // String email = vista.txt_usuario.getText();
+        // String password = new String(vista.txt_password.getPassword());
+        String email = "vazu@test.com";
+        String password = "vazu";
+        
         if (!validarCampo(email, password)) {
             return;
         }
@@ -48,7 +51,7 @@ public class LogInControlador {
             abrirVentanaPrincipal(usuario);
 
         } else {
-            mostrarMensaje("Email o contraseña incorrectos", "Error", JOptionPane.ERROR);
+            mostrarMensaje("Email o contraseña incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 

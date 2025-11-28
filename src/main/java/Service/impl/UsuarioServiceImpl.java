@@ -42,9 +42,9 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public void desabilitarUsuario(int idUsuario) {
+    public void deshabilitarUsuario(int idUsuario) {
 
-        usuarioDao.desabilitarUsuario(idUsuario);
+        usuarioDao.deshabilitarUsuario(idUsuario);
     }
 
     @Override
@@ -59,6 +59,16 @@ public class UsuarioServiceImpl implements UsuarioService {
         } else {
             return null;
         }
+    }
+
+    @Override
+    public Usuario buscarUsuarioPorEmail(String email) {
+        return usuarioDao.buscarUsuarioPorEmail(email);
+    }
+
+    @Override
+    public Usuario buscarUsuarioPorId(int id) {
+        return usuarioDao.buscarUsuarioPorId(id);
     }
 
 }

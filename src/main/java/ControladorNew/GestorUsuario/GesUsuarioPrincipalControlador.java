@@ -1,27 +1,30 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ControladorNew.GestorUsuario;
 
+import Modelo.Usuario;
 import Service.UsuarioService;
 import Service.impl.UsuarioServiceImpl;
 import VistaNew.Usuario.UsuarioPrincipal;
 
-/**
- *
- * @author Milagritos
- */
+import java.util.List;
+
+import javax.swing.table.DefaultTableModel;
+
+import ControladorNew.LogInControlador;
+
 public final class GesUsuarioPrincipalControlador {
 
     private UsuarioPrincipal view;
+    private Usuario usuario;
     private UsuarioService service;
+    private DefaultTableModel model;
 
-    public GesUsuarioPrincipalControlador() {
+    public GesUsuarioPrincipalControlador(Usuario usuario) {
         this.view = new UsuarioPrincipal();
+        this.usuario = usuario;
         this.service = new UsuarioServiceImpl();
-
+        this.cargarUsuario();
         this.configuracionListeners();
+        this.initTablaUsuario();
     }
 
     public void iniciarUsuarioPrincipal() {
@@ -30,27 +33,91 @@ public final class GesUsuarioPrincipalControlador {
     }
 
     private void configuracionListeners() {
-        view.btn_añadirUsuario.addActionListener(e -> abrirUsuarioRegister());
-        view.btn_EditarUsuario.addActionListener(e -> abrirEditUsuario());
-        view.btn_desabilitarUsuario.addActionListener(e -> abrirDesUsuario());
+        view.btn_añadirUsuario.addActionListener(e -> agregarUsuario());
+        view.btn_EditarUsuario.addActionListener(e -> editarUsuario());
+        view.btn_salir.addActionListener(e -> iniciarLogin());
+        view.btn_deshabilitarUsuario.addActionListener(e -> deshabilitarUsuario());
     }
 
-    private void abrirUsuarioRegister() {
-        GesUsuarioRegisterControlador registerUsuarioController = new GesUsuarioRegisterControlador();
+    public void editarUsuario() {
+        int filaSeleccionada = view.table_mostrarUsuarios.getSelectedRow();
+        if (filaSeleccionada == -1) {
+            javax.swing.JOptionPane.showMessageDialog(view, "Por favor, seleccione un usuario de la tabla.",
+                    "Advertencia", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        int id = (int) view.table_mostrarUsuarios.getValueAt(filaSeleccionada, 0);
+
+        Usuario usuarioSeleccionado = service.buscarUsuarioPorId(id);
+
+        if (usuarioSeleccionado == null) {
+            javax.swing.JOptionPane.showMessageDialog(view, "Error al recuperar los datos del usuario.", "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
         view.dispose();
-        registerUsuarioController.iniciarRegistro();
+        GesUsuarioEditControlador editControlador = new GesUsuarioEditControlador(usuario);
+        editControlador.cargarDatosDeUsuario(usuarioSeleccionado);
+        editControlador.iniciarActulizacion();
     }
 
-    private void abrirEditUsuario() {
-        GesUsuarioEditControlador gesUsuarioEdit = new GesUsuarioEditControlador();
+    public void deshabilitarUsuario() {
+        int filaSeleccionada = view.table_mostrarUsuarios.getSelectedRow();
+        if (filaSeleccionada == -1) {
+            javax.swing.JOptionPane.showMessageDialog(view, "Por favor, seleccione un usuario de la tabla.",
+                    "Advertencia", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
 
+        int id = (int) view.table_mostrarUsuarios.getValueAt(filaSeleccionada, 0);
+
+        Usuario usuarioSeleccionado = service.buscarUsuarioPorId(id);
+
+        if (usuarioSeleccionado == null) {
+            javax.swing.JOptionPane.showMessageDialog(view, "Error al recuperar los datos del usuario.", "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        service.deshabilitarUsuario(usuarioSeleccionado.getIdUsuario());
+        initTablaUsuario();
+    }
+
+    public void cargarUsuario() {
+        view.txtEmailUsuario.setText(usuario.getEmail());
+        view.txtNombreUsuario.setText(usuario.getNombres() + " " + usuario.getApellidos());
+    }
+
+    public void initTablaUsuario() {
+        String[] header = { "ID", "Nombres", "Apellidos", "Email", "Telefono", "Direccion", "Estado" };
+        model = new DefaultTableModel(header, 0);
+        view.table_mostrarUsuarios.setModel(model);
+
+        List<Usuario> listaUsuarios = service.mostrarUsuario();
+        for (Usuario usuario : listaUsuarios) {
+            model.addRow(new Object[] {
+                    usuario.getIdUsuario(),
+                    usuario.getNombres(),
+                    usuario.getApellidos(),
+                    usuario.getEmail(),
+                    usuario.getTelefono(),
+                    usuario.getDireccion(),
+                    usuario.isEstado() ? "Activo" : "Inactivo",
+            });
+        }
+        view.table_mostrarUsuarios.setModel(model);
+    }
+
+    public void agregarUsuario() {
         view.dispose();
-        gesUsuarioEdit.iniciarActulizacion();
+        new GesUsuarioRegisterControlador(usuario).iniciarRegistro();
     }
 
-    private void abrirDesUsuario() {
-        GesUsuarioDesControlador gesUsuariodes = new GesUsuarioDesControlador();
+    public void iniciarLogin() {
+        LogInControlador loginController = new LogInControlador();
         view.dispose();
-        gesUsuariodes.iniciarDeshabilitar();
+        loginController.iniciarLogin();
     }
+
 }

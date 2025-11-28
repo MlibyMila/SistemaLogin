@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ControladorNew.GestorUsuario;
 
 import Service.UsuarioService;
@@ -11,10 +7,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Milagritos
- */
 public class GesUsuarioDesControlador {
 
     private UsuarioDes view;
@@ -25,60 +17,64 @@ public class GesUsuarioDesControlador {
         this.service = new UsuarioServiceImpl();
         this.configuracionListeners();
     }
+
     public void iniciarDeshabilitar() {
         view.setVisible(true);
         view.setLocationRelativeTo(null);
     }
 
     private void configuracionListeners() {
-        view.btn_desabilitarUsuario.addActionListener(e -> desabilitar());
-        view.btn_cancelarDesabilitarUsuario.addActionListener(e -> limpiarCampos());
-        view.btn_salir.addActionListener(e -> abrirUsuarioPrincipal());
+        view.btn_deshabilitarUsuario.addActionListener(e -> deshabilitar());
+        view.btn_cancelarDeshabilitarUsuario.addActionListener(e -> limpiarCampos());
+        // view.btn_salir.addActionListener(e -> abrirUsuarioPrincipal());
     }
 
     private void limpiarCampos() {
-        view.txt_IdUsuarioDesabilitar.setText("");
-        view.txt_nombreDesabilitar.setText("");
+        view.txt_IdUsuarioDeshabilitar.setText("");
+        view.txt_nombreDeshabilitar.setText("");
     }
 
-    public void desabilitar() {
+    public void deshabilitar() {
 
-        String idTexto = view.txt_IdUsuarioDesabilitar.getText().trim();
-        String nombreConfirmacion = view.txt_nombreDesabilitar.getText().trim(); 
-        
+        String idTexto = view.txt_IdUsuarioDeshabilitar.getText().trim();
+        String nombreConfirmacion = view.txt_nombreDeshabilitar.getText().trim();
+
         if (!validarID(idTexto)) {
             return;
         }
-        if (!validar(nombreConfirmacion)){
+        if (!validar(nombreConfirmacion)) {
             return;
         }
 
         int idUsuario = Integer.parseInt(idTexto);
-        int confirmacion = JOptionPane.showConfirmDialog(view, 
-                "¿Está seguro de deshabilitar al usuario con ID: " + idUsuario + "?", 
-                "Confirmar Acción", 
+        int confirmacion = JOptionPane.showConfirmDialog(view,
+                "¿Está seguro de deshabilitar al usuario con ID: " + idUsuario + "?",
+                "Confirmar Acción",
                 JOptionPane.YES_NO_OPTION);
 
         if (confirmacion == JOptionPane.YES_OPTION) {
             try {
-                
-                service.desabilitarUsuario(idUsuario);
-                mostrarMensaje("Operación finalizada. El usuario ha sido deshabilitado (si existía).", "Información", JOptionPane.INFORMATION_MESSAGE);
+
+                service.deshabilitarUsuario(idUsuario);
+                mostrarMensaje("Operación finalizada. El usuario ha sido deshabilitado (si existía).", "Información",
+                        JOptionPane.INFORMATION_MESSAGE);
                 limpiarCampos();
-                abrirUsuarioPrincipal();
-                
+                // abrirUsuarioPrincipal();
+
             } catch (Exception e) {
-                mostrarMensaje("Ocurrió un error al intentar deshabilitar: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                mostrarMensaje("Ocurrió un error al intentar deshabilitar: " + e.getMessage(), "Error",
+                        JOptionPane.ERROR_MESSAGE);
             }
         }
-    
+
     }
 
-    private void abrirUsuarioPrincipal() {
-        GesUsuarioPrincipalControlador gesUsuarioPrincipal = new GesUsuarioPrincipalControlador();
-        view.dispose();
-        gesUsuarioPrincipal.iniciarUsuarioPrincipal();
-    }
+    // private void abrirUsuarioPrincipal() {
+    // GesUsuarioPrincipalControlador gesUsuarioPrincipal = new
+    // GesUsuarioPrincipalControlador();
+    // view.dispose();
+    // gesUsuarioPrincipal.iniciarUsuarioPrincipal();
+    // }
 
     private void mostrarMensaje(String mensaje, String titulo, int tipo) {
         JOptionPane.showMessageDialog(view, mensaje, titulo, tipo);
