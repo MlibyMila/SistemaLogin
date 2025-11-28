@@ -514,9 +514,9 @@
                                   <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_passwordAddUsuario" pref="300" max="32767" attributes="0"/>
                                   <Component id="txt_direccionAddUsuario" alignment="0" pref="300" max="32767" attributes="0"/>
                                   <Component id="txt_apellidoAddUsuario" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txt_passwordAddUsuario" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -726,14 +726,6 @@
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="txt_passwordAddUsuario">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jFormattedTextField1"/>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Component>
             <Component class="javax.swing.JTextField" name="txt_apellidoAddUsuario">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField1"/>
@@ -745,6 +737,14 @@
             <Component class="javax.swing.JTextField" name="txt_telefonoAddUsuario">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField7"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="txt_passwordAddUsuario">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jPasswordField1"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

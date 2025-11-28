@@ -62,9 +62,9 @@ public class UsuarioRegister extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         btn_cancelarAddUsuario = new javax.swing.JButton();
         btn_guardarAddUsuario = new javax.swing.JButton();
-        txt_passwordAddUsuario = new javax.swing.JFormattedTextField();
         txt_apellidoAddUsuario = new javax.swing.JTextField();
         txt_telefonoAddUsuario = new javax.swing.JTextField();
+        txt_passwordAddUsuario = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
 
@@ -317,11 +317,11 @@ public class UsuarioRegister extends javax.swing.JFrame {
         btn_guardarAddUsuario.setForeground(new java.awt.Color(255, 255, 255));
         btn_guardarAddUsuario.setText("Guardar");
 
-        txt_passwordAddUsuario.setText("jFormattedTextField1");
-
         txt_apellidoAddUsuario.setText("jTextField1");
 
         txt_telefonoAddUsuario.setText("jTextField7");
+
+        txt_passwordAddUsuario.setText("jPasswordField1");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -350,9 +350,9 @@ public class UsuarioRegister extends javax.swing.JFrame {
                             .addComponent(jLabel10)
                             .addComponent(jLabel16)
                             .addComponent(jLabel14)
-                            .addComponent(txt_passwordAddUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                             .addComponent(txt_direccionAddUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                            .addComponent(txt_apellidoAddUsuario))))
+                            .addComponent(txt_apellidoAddUsuario)
+                            .addComponent(txt_passwordAddUsuario))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -531,7 +531,7 @@ public class UsuarioRegister extends javax.swing.JFrame {
     public javax.swing.JTextField txt_direccionAddUsuario;
     public javax.swing.JTextField txt_emailAddUsuario;
     public javax.swing.JTextField txt_nombreAddUsuario;
-    public javax.swing.JFormattedTextField txt_passwordAddUsuario;
+    public javax.swing.JPasswordField txt_passwordAddUsuario;
     public javax.swing.JTextField txt_telefonoAddUsuario;
     // End of variables declaration//GEN-END:variables
 }

@@ -322,10 +322,10 @@ public class plantillaMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_GestorUsuario;
-    private javax.swing.JButton btn_gestorAutores;
-    private javax.swing.JButton btn_gestorCatalogo;
-    private javax.swing.JButton btn_gestorPrestamos;
+    public javax.swing.JButton btn_GestorUsuario;
+    public javax.swing.JButton btn_gestorAutores;
+    public javax.swing.JButton btn_gestorCatalogo;
+    public javax.swing.JButton btn_gestorPrestamos;
     public javax.swing.JButton btn_salir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;

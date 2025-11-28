@@ -1,39 +1,53 @@
 package ControladorNew;
 
+import ControladorNew.GestorUsuario.GesUsuarioPrincipalControlador;
 import Modelo.Usuario;
 
 import VistaNew.plantillaMenu;
 
 public class MenuController {
 
-    private plantillaMenu vista;
+    private plantillaMenu view;
     private Usuario usuario;
 
     public MenuController(Usuario usuario) {
-        this.vista = new plantillaMenu();
+        this.view = new plantillaMenu();
         this.usuario = usuario;
         this.cargarUsuario();
         this.configuracionListeners();
     }
 
     public void iniciarMenu() {
-        vista.setVisible(true);
-        vista.setLocationRelativeTo(null);
+        view.setVisible(true);
+        view.setLocationRelativeTo(null);
     }
 
     public void iniciarLogin() {
         LogInControlador loginController = new LogInControlador();
-        vista.dispose();
+        view.dispose();
         loginController.iniciarLogin();
     }
+    public void abrirGesUsuario(){
+        GesUsuarioPrincipalControlador gesUsuarioRegisterController = new GesUsuarioPrincipalControlador();
+        view.dispose();
+        gesUsuarioRegisterController.iniciarUsuarioPrincipal();
+    }
+    public void abrirGesCatalogo(){
+        
+    }
+   
 
     public void cargarUsuario() {
-        vista.txtEmailUsuario.setText(usuario.getEmail());
-        vista.txtNombreUsuario.setText(usuario.getNombres() + " " + usuario.getApellidos());
+        view.txtEmailUsuario.setText(usuario.getEmail());
+        view.txtNombreUsuario.setText(usuario.getNombres() + " " + usuario.getApellidos());
     }
 
     private void configuracionListeners() {
-        vista.btn_salir.addActionListener((e) -> iniciarLogin());
+        view.btn_salir.addActionListener((e) -> iniciarLogin());
+         view.btn_GestorUsuario.addActionListener(e -> abrirGesUsuario());
+          view.btn_gestorCatalogo.addActionListener(e -> abrirGesCatalogo() );
+//        view.btn_gestorAutores.addActionListener(e ->);
+//        view.btn_gestorPrestamos.addActionListener(e -> );
     }
 
 }

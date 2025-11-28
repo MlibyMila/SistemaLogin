@@ -272,13 +272,18 @@ public class UsuarioPrincipal extends javax.swing.JFrame {
         btn_añadirAutor.setBackground(new java.awt.Color(0, 102, 204));
         btn_añadirAutor.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         btn_añadirAutor.setForeground(new java.awt.Color(255, 255, 255));
-        btn_añadirAutor.setText("+ Añadir Autor");
+        btn_añadirAutor.setText("+ Añadir Uusario");
         btn_añadirAutor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_añadirAutor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_añadirAutorActionPerformed(evt);
+            }
+        });
 
         btn_EditarAutor.setBackground(new java.awt.Color(0, 204, 0));
         btn_EditarAutor.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         btn_EditarAutor.setForeground(new java.awt.Color(255, 255, 255));
-        btn_EditarAutor.setText("Editar Autor");
+        btn_EditarAutor.setText("Editar Usuario");
         btn_EditarAutor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_EditarAutor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -289,7 +294,7 @@ public class UsuarioPrincipal extends javax.swing.JFrame {
         btn_desabilitarAutor.setBackground(new java.awt.Color(255, 0, 0));
         btn_desabilitarAutor.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         btn_desabilitarAutor.setForeground(new java.awt.Color(255, 255, 255));
-        btn_desabilitarAutor.setText("- Desabilitar Autor");
+        btn_desabilitarAutor.setText("- Desabilitar Usuario");
         btn_desabilitarAutor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -322,10 +327,10 @@ public class UsuarioPrincipal extends javax.swing.JFrame {
                                 .addContainerGap())
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(btn_añadirAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(135, 135, 135)
+                                .addGap(148, 148, 148)
                                 .addComponent(btn_EditarAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(145, 145, 145)
-                                .addComponent(btn_desabilitarAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(121, 121, 121)
+                                .addComponent(btn_desabilitarAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(56, 56, 56))))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -377,6 +382,10 @@ public class UsuarioPrincipal extends javax.swing.JFrame {
     private void btn_EditarAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EditarAutorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_EditarAutorActionPerformed
+
+    private void btn_añadirAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_añadirAutorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_añadirAutorActionPerformed
 
     /**
      * @param args the command line arguments

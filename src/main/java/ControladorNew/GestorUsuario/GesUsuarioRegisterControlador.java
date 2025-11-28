@@ -1,50 +1,60 @@
-package ControladorNew;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package ControladorNew.GestorUsuario;
 
 import Modelo.Usuario;
 import Service.UsuarioService;
 import Service.impl.UsuarioServiceImpl;
-import VistaNew.RegisterView;
+import VistaNew.Usuario.UsuarioRegister;
 import java.time.LocalDateTime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
-public class RegistroController {
-    
-    private RegisterView view;
+/**
+ *
+ * @author Milagritos
+ */
+public class GesUsuarioRegisterControlador {
+
+    private UsuarioRegister view;
     private UsuarioService service;
-    
-    public RegistroController() {
-        this.view = new RegisterView();
+
+    public GesUsuarioRegisterControlador() {
+        this.view = new UsuarioRegister();
         this.service = new UsuarioServiceImpl();
+
         this.configuracionListeners();
     }
-    
+
     public void iniciarRegistro() {
         view.setVisible(true);
         view.setLocationRelativeTo(null);
     }
-    
+
     private void configuracionListeners() {
-        view.btn_registrar.addActionListener(e -> registrar());
-        view.btn_login.addActionListener(e -> abrirLogin());
+        view.btn_guardarAddUsuario.addActionListener(e -> registrar());
+        view.btn_cancelarAddUsuario.addActionListener(e -> limpiarCampos());
+        view.btn_salir.addActionListener(e -> abrirUsuarioPrincipal());
     }
-    
+
     private void registrar() {
-        String nombres = view.txt_nombres.getText();
-        String apellidos = view.txt_apellidos.getText();
-        String email = view.txt_email.getText();
-        String password = new String(view.txt_password.getPassword());
-        String telefono = view.txt_telefono.getText();    
-        String direccion = view.txt_direccion.getText();
-        
+        String nombres = view.txt_nombreAddUsuario.getText();
+        String apellidos = view.txt_apellidoAddUsuario.getText();
+        String email = view.txt_emailAddUsuario.getText();
+        String password = new String(view.txt_passwordAddUsuario.getPassword());
+        String telefono = view.txt_telefonoAddUsuario.getText();
+        String direccion = view.txt_direccionAddUsuario.getText();
+
         if (!validarCampos(nombres, apellidos, email, password)) {
             return;
         }
         if (!validarTelefono(telefono)) {
             return;
         }
-        
+
         Usuario nuevoUsuario = new Usuario();
         nuevoUsuario.setNombres(nombres);
         nuevoUsuario.setApellidos(apellidos);
@@ -54,18 +64,18 @@ public class RegistroController {
         nuevoUsuario.setDireccion(direccion);
         nuevoUsuario.setFechaCreacion(LocalDateTime.now());
         nuevoUsuario.setEstado(true);
-        
+
         try {
             service.registrarUsuario(nuevoUsuario);
             mostrarMensaje("Registro exitoso!", "Exito!", JOptionPane.INFORMATION_MESSAGE);
             limpiarCampos();
-            abrirLogin();
+            abrirUsuarioPrincipal();
         } catch (Exception e) {
             mostrarMensaje("Error al registrar: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
         }
     }
-    
+
     private boolean validarCampos(String nombres, String apellidos, String email, String password) {
         if (nombres.isEmpty() || apellidos.isEmpty() || email.isEmpty() || password.isEmpty()) {
             mostrarMensaje("Por favor, completar los campos obligatorios", "Error", JOptionPane.ERROR_MESSAGE);
@@ -85,7 +95,7 @@ public class RegistroController {
         }
         return true;
     }
-    
+
     private boolean validarEmail(String email) {
         if (email == null || email.trim().isEmpty()) {
             return false;
@@ -95,7 +105,11 @@ public class RegistroController {
         Matcher confirmar = patron.matcher(email.trim());
         return confirmar.matches();
     }
-    
+
+    private void mostrarMensaje(String mensaje, String titulo, int tipo) {
+        JOptionPane.showMessageDialog(view, mensaje, titulo, tipo);
+    }
+
     private boolean validar(String campo) {
         if (campo == null || campo.trim().isEmpty()) {
             return false;
@@ -105,24 +119,20 @@ public class RegistroController {
         Matcher confirmar = patron.matcher(campo.trim());
         return confirmar.matches();
     }
-    
+
     private void limpiarCampos() {
-        view.txt_nombres.setText("");
-        view.txt_apellidos.setText("");
-        view.txt_email.setText("");
-        view.txt_password.setText("");
-        view.txt_telefono.setText("");
-        view.txt_direccion.setText("");
+        view.txt_nombreAddUsuario.setText("");
+        view.txt_apellidoAddUsuario.setText("");
+        view.txt_emailAddUsuario.setText("");
+        view.txt_passwordAddUsuario.setText("");
+        view.txt_telefonoAddUsuario.setText("");
+        view.txt_direccionAddUsuario.setText("");
     }
-    
-    private void abrirLogin() {
-        LogInControlador loginController = new LogInControlador();
+
+    private void abrirUsuarioPrincipal() {
+        GesUsuarioPrincipalControlador gesUsuarioPrincipal = new GesUsuarioPrincipalControlador();
         view.dispose();
-        loginController.iniciarLogin();
-    }
-    
-    private void mostrarMensaje(String mensaje, String titulo, int tipo) {
-        JOptionPane.showMessageDialog(view, mensaje, titulo, tipo);
+        gesUsuarioPrincipal.iniciarUsuarioPrincipal();
     }
 
     private boolean validarTelefono(String telefono) {
@@ -133,5 +143,5 @@ public class RegistroController {
             return false;
         }
     }
-    
+
 }

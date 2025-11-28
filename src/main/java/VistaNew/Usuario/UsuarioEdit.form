@@ -515,9 +515,9 @@
                                   <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_passwordEditUsuario" alignment="0" pref="300" max="32767" attributes="0"/>
                                   <Component id="txt_direccionEditUsuario" alignment="0" pref="300" max="32767" attributes="0"/>
                                   <Component id="txt_apellidoEditUsuario" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txt_passwordEditUsuario" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -545,8 +545,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txt_emailEditUsuario" alignment="0" pref="35" max="32767" attributes="0"/>
-                          <Component id="txt_passwordEditUsuario" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txt_emailEditUsuario" pref="35" max="32767" attributes="0"/>
+                          <Component id="txt_passwordEditUsuario" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -727,14 +727,6 @@
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="txt_passwordEditUsuario">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jFormattedTextField1"/>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Component>
             <Component class="javax.swing.JTextField" name="txt_apellidoEditUsuario">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField1"/>
@@ -746,6 +738,14 @@
             <Component class="javax.swing.JTextField" name="txt_telefonoEditUsuario">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jTextField7"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="txt_passwordEditUsuario">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jPasswordField1"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

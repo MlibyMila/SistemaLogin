@@ -62,9 +62,9 @@ public class UsuarioEdit extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         btn_cancelarEditUsuario = new javax.swing.JButton();
         btn_guardarEditUsuario = new javax.swing.JButton();
-        txt_passwordEditUsuario = new javax.swing.JFormattedTextField();
         txt_apellidoEditUsuario = new javax.swing.JTextField();
         txt_telefonoEditUsuario = new javax.swing.JTextField();
+        txt_passwordEditUsuario = new javax.swing.JPasswordField();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
 
@@ -317,11 +317,11 @@ public class UsuarioEdit extends javax.swing.JFrame {
         btn_guardarEditUsuario.setForeground(new java.awt.Color(255, 255, 255));
         btn_guardarEditUsuario.setText("Guardar");
 
-        txt_passwordEditUsuario.setText("jFormattedTextField1");
-
         txt_apellidoEditUsuario.setText("jTextField1");
 
         txt_telefonoEditUsuario.setText("jTextField7");
+
+        txt_passwordEditUsuario.setText("jPasswordField1");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -350,9 +350,9 @@ public class UsuarioEdit extends javax.swing.JFrame {
                             .addComponent(jLabel10)
                             .addComponent(jLabel16)
                             .addComponent(jLabel14)
-                            .addComponent(txt_passwordEditUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                             .addComponent(txt_direccionEditUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                            .addComponent(txt_apellidoEditUsuario))))
+                            .addComponent(txt_apellidoEditUsuario)
+                            .addComponent(txt_passwordEditUsuario))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -531,7 +531,7 @@ public class UsuarioEdit extends javax.swing.JFrame {
     public javax.swing.JTextField txt_direccionEditUsuario;
     public javax.swing.JTextField txt_emailEditUsuario;
     public javax.swing.JTextField txt_nombreEditUsuario;
-    public javax.swing.JFormattedTextField txt_passwordEditUsuario;
+    public javax.swing.JPasswordField txt_passwordEditUsuario;
     public javax.swing.JTextField txt_telefonoEditUsuario;
     // End of variables declaration//GEN-END:variables
 }
