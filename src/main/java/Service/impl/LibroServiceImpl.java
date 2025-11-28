@@ -22,4 +22,19 @@ public class LibroServiceImpl implements LibroService {
     public List<Libro> buscarLibrosPorCriterio(String criterio) {
         return libroDao.buscarLibrosPorCriterio(criterio);
     }
+
+    @Override
+    public void registrarLibro() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void desavilitarLibro(String ISBN) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Libro buscarLibroPorISBN(String isbn) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

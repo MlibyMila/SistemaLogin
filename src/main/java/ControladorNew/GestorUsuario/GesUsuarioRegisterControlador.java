@@ -9,7 +9,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
-import ControladorNew.LogInControlador;
 
 public class GesUsuarioRegisterControlador {
 
@@ -40,7 +39,7 @@ public class GesUsuarioRegisterControlador {
         view.btn_guardarAddUsuario.addActionListener(e -> registrar());
         view.btn_cancelarAddUsuario.addActionListener(e -> limpiarCampos());
         view.btn_cancelarAddUsuario.addActionListener(e -> abrirMenuPrincipal());
-        view.btn_salir.addActionListener(e -> iniciarLogin());
+        view.btn_salir.addActionListener(e -> abrirUsuarioPrincipal());
     }
 
     private void registrar() {
@@ -147,10 +146,10 @@ public class GesUsuarioRegisterControlador {
         }
     }
 
-    public void iniciarLogin() {
-        LogInControlador loginController = new LogInControlador();
-        view.dispose();
-        loginController.iniciarLogin();
-    }
+      private void abrirUsuarioPrincipal() {
+     GesUsuarioPrincipalControlador gesUsuarioPrincipal = new GesUsuarioPrincipalControlador();
+     view.dispose();
+     gesUsuarioPrincipal.iniciarUsuarioPrincipal();
+     }
 
 }

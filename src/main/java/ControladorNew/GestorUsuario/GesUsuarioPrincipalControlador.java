@@ -18,6 +18,13 @@ public final class GesUsuarioPrincipalControlador {
     private UsuarioService service;
     private DefaultTableModel model;
 
+    public GesUsuarioPrincipalControlador() {
+        this.view = new UsuarioPrincipal();
+        this.service = new UsuarioServiceImpl();
+        this.configuracionListeners();
+        this.initTablaUsuario();
+    }
+
     public GesUsuarioPrincipalControlador(Usuario usuario) {
         this.view = new UsuarioPrincipal();
         this.usuario = usuario;
@@ -90,21 +97,20 @@ public final class GesUsuarioPrincipalControlador {
     }
 
     public void initTablaUsuario() {
-        String[] header = { "ID", "Nombres", "Apellidos", "Email", "Telefono", "Direccion", "Estado" };
+        String[] header = {"ID", "Nombres", "Apellidos", "Email", "Telefono", "Direccion", "Estado"};
         model = new DefaultTableModel(header, 0);
         view.table_mostrarUsuarios.setModel(model);
 
         List<Usuario> listaUsuarios = service.mostrarUsuario();
         for (Usuario usuario : listaUsuarios) {
-            model.addRow(new Object[] {
-                    usuario.getIdUsuario(),
-                    usuario.getNombres(),
-                    usuario.getApellidos(),
-                    usuario.getEmail(),
-                    usuario.getTelefono(),
-                    usuario.getDireccion(),
-                    usuario.isEstado() ? "Activo" : "Inactivo",
-            });
+            model.addRow(new Object[]{
+                usuario.getIdUsuario(),
+                usuario.getNombres(),
+                usuario.getApellidos(),
+                usuario.getEmail(),
+                usuario.getTelefono(),
+                usuario.getDireccion(),
+                usuario.isEstado() ? "Activo" : "Inactivo",});
         }
         view.table_mostrarUsuarios.setModel(model);
     }

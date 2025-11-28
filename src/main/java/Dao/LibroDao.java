@@ -19,9 +19,7 @@ public class LibroDao {
                 + "LEFT JOIN Categorias c ON l.IdCategoria = c.IdCategoria "
                 + "WHERE l.Estado = 1";
 
-        try (Connection con = ConexionSQLServer.getConexion();
-                PreparedStatement pstmt = con.prepareStatement(sql);
-                ResultSet rs = pstmt.executeQuery()) {
+        try (Connection con = ConexionSQLServer.getConexion(); PreparedStatement pstmt = con.prepareStatement(sql); ResultSet rs = pstmt.executeQuery()) {
 
             while (rs.next()) {
                 Libro libro = new Libro();
@@ -41,6 +39,11 @@ public class LibroDao {
             System.out.println("Error al obtener todos los libros: " + e.getMessage());
         }
         return libros;
+    }
+    public Libro buscarLibroPorISBN(String isbn){
+        String sql = "SELECT * FROM Libros WHERE isbn = ? ";
+        Libro libro = new Libro();
+        return libro;
     }
 
     public List<Libro> buscarLibrosPorCriterio(String criterio) {
@@ -99,6 +102,24 @@ public class LibroDao {
 
         } catch (SQLException e) {
             System.out.println("Error al registrar libro : " + e.getMessage());
+        }
+
+    }
+    public void desavilitarLibro(String isbn) {
+        String sql = "UPDATE Libros SET Estado = ? WHERE ISBN = ?";
+        try (Connection con = ConexionSQLServer.getConexion();
+                PreparedStatement pstmt = con.prepareStatement(sql)) {
+            pstmt.setBoolean(1, false);
+            pstmt.setString(2, isbn);
+            int filasAfectadas = pstmt.executeUpdate();
+            if (filasAfectadas > 0) {
+                System.out.println("Se ha desavilitado con exito el libro con ISBN: " + isbn);
+            } else {
+                System.out.println("No se ha encontrado el Libro con ISBN: " + isbn);
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error al desavilitar Libro: " + e.getMessage());
         }
 
     }

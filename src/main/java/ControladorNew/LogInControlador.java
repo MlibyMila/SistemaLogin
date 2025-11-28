@@ -35,10 +35,10 @@ public class LogInControlador {
     }
 
     private void login() {
-        // String email = vista.txt_usuario.getText();
-        // String password = new String(vista.txt_password.getPassword());
-        String email = "vazu@test.com";
-        String password = "vazu";
+         String email = vista.txt_usuario.getText();
+         String password = new String(vista.txt_password.getPassword());
+//        String email = "vazu@test.com";
+//        String password = "vazu";
         
         if (!validarCampo(email, password)) {
             return;

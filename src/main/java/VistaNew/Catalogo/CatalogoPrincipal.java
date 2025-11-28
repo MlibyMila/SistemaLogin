@@ -42,7 +42,7 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        btn_salir1 = new javax.swing.JButton();
+        btn_salir = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -123,11 +123,11 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/transfer.png"))); // NOI18N
         jLabel11.setText("jLabel11");
 
-        btn_salir1.setBackground(new java.awt.Color(255, 0, 0));
-        btn_salir1.setFont(new java.awt.Font("Segoe UI Black", 1, 15)); // NOI18N
-        btn_salir1.setForeground(new java.awt.Color(255, 255, 255));
-        btn_salir1.setText("Salir");
-        btn_salir1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_salir.setBackground(new java.awt.Color(255, 0, 0));
+        btn_salir.setFont(new java.awt.Font("Segoe UI Black", 1, 15)); // NOI18N
+        btn_salir.setForeground(new java.awt.Color(255, 255, 255));
+        btn_salir.setText("Salir");
+        btn_salir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -158,7 +158,7 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
                             .addComponent(jLabel7)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(67, 67, 67)
-                        .addComponent(btn_salir1)))
+                        .addComponent(btn_salir)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -188,7 +188,7 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
                     .addComponent(btn_gestorPrestamos)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_salir1)
+                .addComponent(btn_salir)
                 .addGap(27, 27, 27))
         );
 
@@ -418,7 +418,7 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btn_gestorAutores;
     private javax.swing.JButton btn_gestorCatalogo;
     private javax.swing.JButton btn_gestorPrestamos;
-    public javax.swing.JButton btn_salir1;
+    public javax.swing.JButton btn_salir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -434,7 +434,7 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    public javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable table_mostrarLibros;

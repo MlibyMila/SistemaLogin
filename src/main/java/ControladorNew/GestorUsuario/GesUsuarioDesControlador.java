@@ -26,7 +26,7 @@ public class GesUsuarioDesControlador {
     private void configuracionListeners() {
         view.btn_deshabilitarUsuario.addActionListener(e -> deshabilitar());
         view.btn_cancelarDeshabilitarUsuario.addActionListener(e -> limpiarCampos());
-        // view.btn_salir.addActionListener(e -> abrirUsuarioPrincipal());
+         view.btn_salir.addActionListener(e -> abrirUsuarioPrincipal());
     }
 
     private void limpiarCampos() {
@@ -59,7 +59,7 @@ public class GesUsuarioDesControlador {
                 mostrarMensaje("Operación finalizada. El usuario ha sido deshabilitado (si existía).", "Información",
                         JOptionPane.INFORMATION_MESSAGE);
                 limpiarCampos();
-                // abrirUsuarioPrincipal();
+                abrirUsuarioPrincipal(); 
 
             } catch (Exception e) {
                 mostrarMensaje("Ocurrió un error al intentar deshabilitar: " + e.getMessage(), "Error",
@@ -69,12 +69,11 @@ public class GesUsuarioDesControlador {
 
     }
 
-    // private void abrirUsuarioPrincipal() {
-    // GesUsuarioPrincipalControlador gesUsuarioPrincipal = new
-    // GesUsuarioPrincipalControlador();
-    // view.dispose();
-    // gesUsuarioPrincipal.iniciarUsuarioPrincipal();
-    // }
+     private void abrirUsuarioPrincipal() {
+     GesUsuarioPrincipalControlador gesUsuarioPrincipal = new GesUsuarioPrincipalControlador();
+     view.dispose();
+     gesUsuarioPrincipal.iniciarUsuarioPrincipal();
+     }
 
     private void mostrarMensaje(String mensaje, String titulo, int tipo) {
         JOptionPane.showMessageDialog(view, mensaje, titulo, tipo);
