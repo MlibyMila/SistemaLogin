@@ -52,6 +52,5 @@ public final class GesUsuarioPrincipalControlador {
         GesUsuarioDesControlador gesUsuariodes = new GesUsuarioDesControlador();
         view.dispose();
         gesUsuariodes.iniciarDeshabilitar();
-
     }
 }
