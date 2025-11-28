@@ -43,6 +43,7 @@ public final class GesUsuarioPrincipalControlador {
 
     private void abrirEditUsuario() {
         GesUsuarioEditControlador gesUsuarioEdit = new GesUsuarioEditControlador();
+
         view.dispose();
         gesUsuarioEdit.iniciarActulizacion();
     }

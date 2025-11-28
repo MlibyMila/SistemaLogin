@@ -39,14 +39,14 @@ public class GesUsuarioEditControlador {
         view.btn_salir.addActionListener(e -> abrirUsuarioPrincipal());
     }
 
-    private void actualizar(Usuario usuario) {
+    private void cargarDatosDeUusuario(Usuario usuario) {
         this.usuarioEdicion = usuario;
+        view.txt_nombreEditUsuario.setText(usuario.getNombres());
         view.txt_nombreEditUsuario.setText(usuario.getNombres());
         view.txt_apellidoEditUsuario.setText(usuario.getApellidos());
         view.txt_emailEditUsuario.setText(usuario.getEmail());
         view.txt_telefonoEditUsuario.setText(String.valueOf(usuario.getTelefono()));
         view.txt_direccionEditUsuario.setText(usuario.getDireccion());
-
         view.txt_passwordEditUsuario.setText("");
         view.btn_guardarEditUsuario.setText("Actualizar");
     }
@@ -58,6 +58,11 @@ public class GesUsuarioEditControlador {
         String password = new String(view.txt_passwordEditUsuario.getPassword());
         String telefono = view.txt_telefonoEditUsuario.getText().trim();
         String direccion = view.txt_direccionEditUsuario.getText().trim();
+        usuarioEdicion.setNombres(nombres);
+        usuarioEdicion.setApellidos(apellidos);
+        usuarioEdicion.setEmail(email);
+        usuarioEdicion.setTelefono(Integer.parseInt(telefono));
+        usuarioEdicion.setDireccion(direccion);
 
         if (!validarCampos(nombres, apellidos, email)) {
             return;
@@ -67,9 +72,16 @@ public class GesUsuarioEditControlador {
             return;
         }
 
-        if (usuarioEdicion == null && password.isEmpty()) {
-            mostrarMensaje("La contraseña es obligatoria para nuevos usuarios.", "Campo Vacío", JOptionPane.WARNING_MESSAGE);
-            return;
+        if (!password.isEmpty()) {
+            usuarioEdicion.setPasswordHash(password);
+        }
+        try {
+            service.actualizarUsuario(usuarioEdicion); // Asumiendo que este método existe en tu Service
+            mostrarMensaje("Usuario actualizado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            limpiarCampos();
+            abrirUsuarioPrincipal();
+        } catch (Exception e) {
+            mostrarMensaje("Error al actualizar: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
 
     }
