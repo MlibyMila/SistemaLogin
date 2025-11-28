@@ -30,9 +30,9 @@ public final class GesUsuarioPrincipalControlador {
     }
 
     private void configuracionListeners() {
-        view.btn_añadirAutor.addActionListener(e -> abrirUsuarioRegister());
-        view.btn_EditarAutor.addActionListener(e -> abrirEditUsuario());
-        view.btn_EditarAutor.addActionListener(e -> abrirDesUsuario());
+        view.btn_añadirUsuario.addActionListener(e -> abrirUsuarioRegister());
+        view.btn_EditarUsuario.addActionListener(e -> abrirEditUsuario());
+        view.btn_desabilitarUsuario.addActionListener(e -> abrirDesUsuario());
     }
 
     private void abrirUsuarioRegister() {
@@ -48,6 +48,9 @@ public final class GesUsuarioPrincipalControlador {
     }
 
     private void abrirDesUsuario() {
+        GesUsuarioDesControlador gesUsuariodes = new GesUsuarioDesControlador();
+        view.dispose();
+        gesUsuariodes.iniciarDeshabilitar();
 
     }
 }

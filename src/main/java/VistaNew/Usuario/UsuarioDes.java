@@ -57,7 +57,7 @@ public class UsuarioDes extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         txt_IdUsuarioDesabilitar = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        txt_tituloDesabilitar = new javax.swing.JTextField();
+        txt_nombreDesabilitar = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         btn_cancelarDesabilitarUsuario = new javax.swing.JButton();
         btn_desabilitarUsuario = new javax.swing.JButton();
@@ -287,7 +287,7 @@ public class UsuarioDes extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Nombres:");
 
-        txt_tituloDesabilitar.setText("jTextField2");
+        txt_nombreDesabilitar.setText("jTextField2");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -299,7 +299,7 @@ public class UsuarioDes extends javax.swing.JFrame {
                     .addComponent(jLabel13)
                     .addComponent(txt_IdUsuarioDesabilitar, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
                     .addComponent(jLabel14)
-                    .addComponent(txt_tituloDesabilitar))
+                    .addComponent(txt_nombreDesabilitar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -312,7 +312,7 @@ public class UsuarioDes extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_tituloDesabilitar)
+                .addComponent(txt_nombreDesabilitar)
                 .addContainerGap())
         );
 
@@ -508,6 +508,6 @@ public class UsuarioDes extends javax.swing.JFrame {
     public javax.swing.JTextField txtEmailUsuario;
     public javax.swing.JTextField txtNombreUsuario;
     public javax.swing.JTextField txt_IdUsuarioDesabilitar;
-    public javax.swing.JTextField txt_tituloDesabilitar;
+    public javax.swing.JTextField txt_nombreDesabilitar;
     // End of variables declaration//GEN-END:variables
 }

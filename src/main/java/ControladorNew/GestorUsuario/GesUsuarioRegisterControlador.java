@@ -25,7 +25,6 @@ public class GesUsuarioRegisterControlador {
     public GesUsuarioRegisterControlador() {
         this.view = new UsuarioRegister();
         this.service = new UsuarioServiceImpl();
-
         this.configuracionListeners();
     }
 

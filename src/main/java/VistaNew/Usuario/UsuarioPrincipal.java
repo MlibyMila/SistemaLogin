@@ -51,9 +51,9 @@ public class UsuarioPrincipal extends javax.swing.JFrame {
         txtNombreUsuario = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         table_mostrarUsuarios = new javax.swing.JTable();
-        btn_añadirAutor = new javax.swing.JButton();
-        btn_EditarAutor = new javax.swing.JButton();
-        btn_desabilitarAutor = new javax.swing.JButton();
+        btn_añadirUsuario = new javax.swing.JButton();
+        btn_EditarUsuario = new javax.swing.JButton();
+        btn_desabilitarUsuario = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
 
@@ -269,33 +269,33 @@ public class UsuarioPrincipal extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(table_mostrarUsuarios);
 
-        btn_añadirAutor.setBackground(new java.awt.Color(0, 102, 204));
-        btn_añadirAutor.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        btn_añadirAutor.setForeground(new java.awt.Color(255, 255, 255));
-        btn_añadirAutor.setText("+ Añadir Uusario");
-        btn_añadirAutor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_añadirAutor.addActionListener(new java.awt.event.ActionListener() {
+        btn_añadirUsuario.setBackground(new java.awt.Color(0, 102, 204));
+        btn_añadirUsuario.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_añadirUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        btn_añadirUsuario.setText("+ Añadir Uusario");
+        btn_añadirUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_añadirUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_añadirAutorActionPerformed(evt);
+                btn_añadirUsuarioActionPerformed(evt);
             }
         });
 
-        btn_EditarAutor.setBackground(new java.awt.Color(0, 204, 0));
-        btn_EditarAutor.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        btn_EditarAutor.setForeground(new java.awt.Color(255, 255, 255));
-        btn_EditarAutor.setText("Editar Usuario");
-        btn_EditarAutor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_EditarAutor.addActionListener(new java.awt.event.ActionListener() {
+        btn_EditarUsuario.setBackground(new java.awt.Color(0, 204, 0));
+        btn_EditarUsuario.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_EditarUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        btn_EditarUsuario.setText("Editar Usuario");
+        btn_EditarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_EditarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_EditarAutorActionPerformed(evt);
+                btn_EditarUsuarioActionPerformed(evt);
             }
         });
 
-        btn_desabilitarAutor.setBackground(new java.awt.Color(255, 0, 0));
-        btn_desabilitarAutor.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        btn_desabilitarAutor.setForeground(new java.awt.Color(255, 255, 255));
-        btn_desabilitarAutor.setText("- Desabilitar Usuario");
-        btn_desabilitarAutor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_desabilitarUsuario.setBackground(new java.awt.Color(255, 0, 0));
+        btn_desabilitarUsuario.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_desabilitarUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        btn_desabilitarUsuario.setText("- Desabilitar Usuario");
+        btn_desabilitarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setText("GESTION DE USUARIOS");
@@ -326,11 +326,11 @@ public class UsuarioPrincipal extends javax.swing.JFrame {
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 784, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap())
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(btn_añadirAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_añadirUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(148, 148, 148)
-                                .addComponent(btn_EditarAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_EditarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(121, 121, 121)
-                                .addComponent(btn_desabilitarAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_desabilitarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(56, 56, 56))))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -346,9 +346,9 @@ public class UsuarioPrincipal extends javax.swing.JFrame {
                             .addComponent(jLabel10))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_añadirAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_EditarAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_desabilitarAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btn_añadirUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_EditarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_desabilitarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
@@ -379,13 +379,13 @@ public class UsuarioPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_gestorAutoresActionPerformed
 
-    private void btn_EditarAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EditarAutorActionPerformed
+    private void btn_EditarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EditarUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_EditarAutorActionPerformed
+    }//GEN-LAST:event_btn_EditarUsuarioActionPerformed
 
-    private void btn_añadirAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_añadirAutorActionPerformed
+    private void btn_añadirUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_añadirUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_añadirAutorActionPerformed
+    }//GEN-LAST:event_btn_añadirUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -424,10 +424,10 @@ public class UsuarioPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btn_EditarAutor;
+    public javax.swing.JButton btn_EditarUsuario;
     private javax.swing.JButton btn_GestorUsuario;
-    public javax.swing.JButton btn_añadirAutor;
-    public javax.swing.JButton btn_desabilitarAutor;
+    public javax.swing.JButton btn_añadirUsuario;
+    public javax.swing.JButton btn_desabilitarUsuario;
     private javax.swing.JButton btn_gestorAutores;
     private javax.swing.JButton btn_gestorCatalogo;
     private javax.swing.JButton btn_gestorPrestamos;

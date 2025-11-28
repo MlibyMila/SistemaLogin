@@ -13,6 +13,7 @@ VistaNew\Catalogo\catalogoDes$3.class
 VistaNew\Usuario\UsuarioEdit$2.class
 VistaNew\Usuario\UsuarioRegister.class
 VistaNew\Autores\AutorPrincipal$3.class
+ControladorNew\GestorUsuario\GesUsuarioDesControlador.class
 VistaNew\Catalogo\CatalogoAdd$3.class
 VistaNew\Usuario\UsuarioPrincipal$3.class
 VistaNew\Autores\AutorDes$2.class
