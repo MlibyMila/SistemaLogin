@@ -9,4 +9,5 @@ public interface LibroService {
     List<Libro> buscarLibrosPorCriterio(String criterio);
     void desavilitarLibro(String ISBN);
     Libro buscarLibroPorISBN(String isbn);
+    void editarLibro(Libro libro);
 }

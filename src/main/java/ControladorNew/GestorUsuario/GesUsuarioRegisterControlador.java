@@ -1,5 +1,6 @@
 package ControladorNew.GestorUsuario;
 
+import ControladorNew.LogInControlador;
 import Modelo.Usuario;
 import Service.UsuarioService;
 import Service.impl.UsuarioServiceImpl;
@@ -39,7 +40,7 @@ public class GesUsuarioRegisterControlador {
         view.btn_guardarAddUsuario.addActionListener(e -> registrar());
         view.btn_cancelarAddUsuario.addActionListener(e -> limpiarCampos());
         view.btn_cancelarAddUsuario.addActionListener(e -> abrirMenuPrincipal());
-        view.btn_salir.addActionListener(e -> abrirUsuarioPrincipal());
+        view.btn_salir.addActionListener(e -> iniciarLogin());
     }
 
     private void registrar() {
@@ -71,7 +72,7 @@ public class GesUsuarioRegisterControlador {
             service.registrarUsuario(nuevoUsuario);
             mostrarMensaje("Registro exitoso!", "Exito!", JOptionPane.INFORMATION_MESSAGE);
             limpiarCampos();
-            // abrirUsuarioPrincipal();
+            abrirMenuPrincipal();
         } catch (Exception e) {
             mostrarMensaje("Error al registrar: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
@@ -145,11 +146,10 @@ public class GesUsuarioRegisterControlador {
             return false;
         }
     }
-
-      private void abrirUsuarioPrincipal() {
-     GesUsuarioPrincipalControlador gesUsuarioPrincipal = new GesUsuarioPrincipalControlador();
-     view.dispose();
-     gesUsuarioPrincipal.iniciarUsuarioPrincipal();
-     }
+       public void iniciarLogin() {
+        LogInControlador loginController = new LogInControlador();
+        view.dispose();
+        loginController.iniciarLogin();
+    }
 
 }

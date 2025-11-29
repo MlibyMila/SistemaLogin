@@ -10,6 +10,7 @@ import Modelo.Usuario;
 import Service.LibroService;
 import Service.impl.LibroServiceImpl;
 import VistaNew.Catalogo.CatalogoPrincipal;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -27,6 +28,8 @@ public class GesCatalogoPrincipalControlador {
     public GesCatalogoPrincipalControlador() {
         this.view = new CatalogoPrincipal();
         this.service = new LibroServiceImpl();
+        this.configuracionListeners();
+        this.innitTableLibros();
     }
 
     public GesCatalogoPrincipalControlador(Usuario usuario) {
@@ -35,7 +38,7 @@ public class GesCatalogoPrincipalControlador {
         this.service = new LibroServiceImpl();
         this.cargarUsuario();
         this.configuracionListeners();
-       // this.innitTableLibros();
+        this.innitTableLibros();
     }
 
     public void iniciarCatalogoPrincipal() {
@@ -44,9 +47,9 @@ public class GesCatalogoPrincipalControlador {
     }
 
     private void configuracionListeners() {
-      //  view.btn_añadirLibro.addActionListener(e -> agregarUsuario());
+        view.btn_añadirLibro.addActionListener(e -> agregarLibro());
         view.btn_EditarLibro.addActionListener(e -> editarLibro());
-        view.btn_desabilitarLibro.addActionListener(e -> deshabilitarUsuario());
+        view.btn_desabilitarLibro.addActionListener(e -> deshabilitarLibro());
         view.btn_salir.addActionListener(e -> iniciarLogin());
     }
 
@@ -56,10 +59,10 @@ public class GesCatalogoPrincipalControlador {
         loginController.iniciarLogin();
     }
 
-    public void deshabilitarUsuario() {
+    public void deshabilitarLibro() {
         int filaSeleccionada = view.table_mostrarLibros.getSelectedRow();
         if (filaSeleccionada == -1) {
-            javax.swing.JOptionPane.showMessageDialog(view, "Por favor, seleccione un usuario de la tabla.",
+            javax.swing.JOptionPane.showMessageDialog(view, "Por favor, seleccione un libro de la tabla.",
                     "Advertencia", javax.swing.JOptionPane.WARNING_MESSAGE);
             return;
         }
@@ -69,13 +72,14 @@ public class GesCatalogoPrincipalControlador {
         Libro libroSeleccionado = service.buscarLibroPorISBN(isbn);
 
         if (libroSeleccionado == null) {
-            javax.swing.JOptionPane.showMessageDialog(view, "Error al recuperar los datos del usuario.", "Error",
+            javax.swing.JOptionPane.showMessageDialog(view, "Error al recuperar los datos del libro.", "Error",
                     javax.swing.JOptionPane.ERROR_MESSAGE);
             return;
         }
         service.desavilitarLibro(libroSeleccionado.getIsbn());
-        //initTableLibro();
+        innitTableLibros();
     }
+
     public void editarLibro() {
         int filaSeleccionada = view.table_mostrarLibros.getSelectedRow();
         if (filaSeleccionada == -1) {
@@ -96,14 +100,37 @@ public class GesCatalogoPrincipalControlador {
 
         view.dispose();
         GesCatalogoEditControlador editControlador = new GesCatalogoEditControlador();
-        //editControlador.cargarDatosDeUsuario(usuarioSeleccionado);
-        editControlador.inciarActualizaciom();
+        editControlador.cargarDatosDeLibro(libroSeleccionado);
+        editControlador.iniciarActulizacion();
     }
-    
 
     public void cargarUsuario() {
         view.txtEmailUsuario.setText(usuario.getEmail());
         view.txtNombreUsuario.setText(usuario.getNombres() + " " + usuario.getApellidos());
+    }
+
+    public void innitTableLibros() {
+        String[] header = {"ID", "Título", "ISBN", "Idioma", "Número de Páginas", "Autor", "Descripción", "Estado"};
+        model = new DefaultTableModel(header, 0);
+        view.table_mostrarLibros.setModel(model);
+
+        List<Libro> listaLibros = service.obtenerTodosLosLibros();
+        for (Libro libro : listaLibros) {
+            model.addRow(new Object[]{
+                libro.getTitulo(),
+                libro.getIsbn(),
+                libro.getIdioma(),
+                libro.getNumeroPaginas(),
+                libro.getDescripcion(),
+                libro.getAutores(),
+                libro.isEstado() ? "Activo" : "Inactivo",});
+        }
+        view.table_mostrarLibros.setModel(model);
+    }
+
+    public void agregarLibro() {
+        view.dispose();
+        new GesCatalogoRegisterControlador().inicializaRegistro();
     }
 
 }
