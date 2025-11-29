@@ -1,5 +1,5 @@
 
-import ControladorNew.LogInControlador;
+import Controlador.LogInControlador;
 
 public class Main {
 

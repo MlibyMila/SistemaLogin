@@ -2,18 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package VistaNew;
+package VistaNew.Usuario;
+
+import VistaNew.*;
 
 /**
  *
  * @author Milagritos
  */
-public class PlantillaMenu extends javax.swing.JFrame {
+public class MenuUsuario extends javax.swing.JFrame {
 
     /**
      * Creates new form plantillaMenu
      */
-    public PlantillaMenu() {
+    public MenuUsuario() {
         initComponents();
     }
 
@@ -47,6 +49,13 @@ public class PlantillaMenu extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txt_bienvenidaUsuario = new javax.swing.JLabel();
         txt_emailUsuario = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        table_mostrarUsuarios = new javax.swing.JTable();
+        btn_añadirUsuario = new javax.swing.JButton();
+        btn_EditarUsuario = new javax.swing.JButton();
+        btn_desabilitarUsuario = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -201,11 +210,11 @@ public class PlantillaMenu extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 594, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_bienvenidaUsuario, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txt_emailUsuario, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(46, 46, 46)
+                    .addComponent(txt_bienvenidaUsuario)
+                    .addComponent(txt_emailUsuario))
+                .addGap(33, 33, 33)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -215,15 +224,68 @@ public class PlantillaMenu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(txt_bienvenidaUsuario)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_emailUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel3)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1)
-                        .addComponent(jLabel2)))
-                .addContainerGap(10, Short.MAX_VALUE))
+                        .addComponent(txt_emailUsuario)
+                        .addGap(8, 8, 8))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel1)
+                                .addComponent(jLabel2)))
+                        .addContainerGap(16, Short.MAX_VALUE))))
         );
+
+        table_mostrarUsuarios.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(table_mostrarUsuarios);
+
+        btn_añadirUsuario.setBackground(new java.awt.Color(0, 102, 204));
+        btn_añadirUsuario.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_añadirUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        btn_añadirUsuario.setText("+ Añadir Uusario");
+        btn_añadirUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_añadirUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_añadirUsuarioActionPerformed(evt);
+            }
+        });
+
+        btn_EditarUsuario.setBackground(new java.awt.Color(0, 204, 0));
+        btn_EditarUsuario.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_EditarUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        btn_EditarUsuario.setText("Editar Usuario");
+        btn_EditarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_EditarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_EditarUsuarioActionPerformed(evt);
+            }
+        });
+
+        btn_desabilitarUsuario.setBackground(new java.awt.Color(255, 0, 0));
+        btn_desabilitarUsuario.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_desabilitarUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        btn_desabilitarUsuario.setText("- Desabilitar Usuario");
+        btn_desabilitarUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel6.setText("GESTION DE USUARIOS");
+
+        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel10.setText("Gestionar y administrar el inventario de usuarios");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -232,21 +294,56 @@ public class PlantillaMenu extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(90, 90, 90)
+                        .addComponent(jLabel6)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel10)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 784, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(btn_añadirUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(148, 148, 148)
+                                .addComponent(btn_EditarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(121, 121, 121)
+                                .addComponent(btn_desabilitarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(56, 56, 56))))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel10))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_añadirUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_EditarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_desabilitarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -263,6 +360,14 @@ public class PlantillaMenu extends javax.swing.JFrame {
     private void btn_gestorAutoresActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btn_gestorAutoresActionPerformed
         // TODO add your handling code here:
     }// GEN-LAST:event_btn_gestorAutoresActionPerformed
+
+    private void btn_EditarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btn_EditarUsuarioActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_btn_EditarUsuarioActionPerformed
+
+    private void btn_añadirUsuarioActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btn_añadirUsuarioActionPerformed
+        // TODO add your handling code here:
+    }// GEN-LAST:event_btn_añadirUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -285,36 +390,42 @@ public class PlantillaMenu extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PlantillaMenu.class.getName()).log(java.util.logging.Level.SEVERE, null,
-                    ex);
+            java.util.logging.Logger.getLogger(MenuUsuario.class.getName()).log(java.util.logging.Level.SEVERE,
+                    null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PlantillaMenu.class.getName()).log(java.util.logging.Level.SEVERE, null,
-                    ex);
+            java.util.logging.Logger.getLogger(MenuUsuario.class.getName()).log(java.util.logging.Level.SEVERE,
+                    null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PlantillaMenu.class.getName()).log(java.util.logging.Level.SEVERE, null,
-                    ex);
+            java.util.logging.Logger.getLogger(MenuUsuario.class.getName()).log(java.util.logging.Level.SEVERE,
+                    null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PlantillaMenu.class.getName()).log(java.util.logging.Level.SEVERE, null,
-                    ex);
+            java.util.logging.Logger.getLogger(MenuUsuario.class.getName()).log(java.util.logging.Level.SEVERE,
+                    null, ex);
         }
+        // </editor-fold>
+        // </editor-fold>
         // </editor-fold>
         // </editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PlantillaMenu().setVisible(true);
+                new MenuUsuario().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btn_EditarUsuario;
     public javax.swing.JButton btn_GestorUsuario;
-    public javax.swing.JButton btn_gestorAutores;
+    public javax.swing.JButton btn_añadirUsuario;
+    public javax.swing.JButton btn_desabilitarUsuario;
+    private javax.swing.JButton btn_gestorAutores;
     public javax.swing.JButton btn_gestorCatalogo;
-    public javax.swing.JButton btn_gestorPrestamos;
+    private javax.swing.JButton btn_gestorPrestamos;
     public javax.swing.JButton btn_salir;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
@@ -322,13 +433,15 @@ public class PlantillaMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JTable table_mostrarUsuarios;
     public javax.swing.JLabel txt_bienvenidaUsuario;
     public javax.swing.JLabel txt_emailUsuario;
     // End of variables declaration//GEN-END:variables
-
 }

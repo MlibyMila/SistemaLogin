@@ -1,43 +1,25 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package ControladorNewGestorCatalogo;
+package Controlador.GestorCatalogo;
 
-import ControladorNew.LogInControlador;
 import Modelo.Libro;
 import Modelo.Usuario;
 import Service.LibroService;
 import Service.impl.LibroServiceImpl;
-import VistaNew.Catalogo.CatalogoEdit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Milagritos
- */
+import VistaNew.Catalogo.EditarRegistrarLibro;
+
 public class GesCatalogoEditControlador {
 
-    private CatalogoEdit view;
+    private EditarRegistrarLibro view;
     private LibroService service;
     private Libro libroEdit = null;
     private Usuario usuario;
-    
-public GesCatalogoEditControlador() {
-        this.view = new CatalogoEdit();
+
+    public GesCatalogoEditControlador() {
+        this.view = new EditarRegistrarLibro();
         this.service = new LibroServiceImpl();
-        this.limpiarCampos();
-        this.cargarUsuario();
-        this.configuracionListeners();
-    }
-    public GesCatalogoEditControlador(Usuario usuario) {
-        this.view = new CatalogoEdit();
-        this.service = new LibroServiceImpl();
-        this.usuario = usuario;
-        this.limpiarCampos();
-        this.cargarUsuario();
         this.configuracionListeners();
     }
 
@@ -46,16 +28,9 @@ public GesCatalogoEditControlador() {
         view.setLocationRelativeTo(null);
     }
 
-    public void cargarUsuario() {
-        view.txtEmailUsuario.setText(usuario.getEmail());
-        view.txtNombreUsuario.setText(usuario.getNombres() + " " + usuario.getApellidos());
-    }
-
     public void configuracionListeners() {
         view.btn_guardarEditLibro.addActionListener(e -> procesarCambios());
-         view.btn_cancelarEditLibro.addActionListener(e -> limpiarCampos());
         view.btn_cancelarEditLibro.addActionListener(e -> abrirMenuPrincipal());
-        view.btn_salir.addActionListener(e -> iniciarLogin());
     }
 
     private void procesarCambios() {
@@ -68,7 +43,7 @@ public GesCatalogoEditControlador() {
         libroEdit.setIsbn(ISBN);
         libroEdit.setIdioma(idioma);
         libroEdit.setDescripcion(descripcion);
-     //  libroEdit.setFechaPublicacion(fechaPublicacion);
+        //  libroEdit.setFechaPublicacion(fechaPublicacion);
 
         if (!validarCampos(titulo, ISBN, idioma)) {
             return;
@@ -77,7 +52,6 @@ public GesCatalogoEditControlador() {
         try {
             service.editarLibro(libroEdit); // Asumiendo que este método existe en tu Service
             mostrarMensaje("Usuario actualizado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-            limpiarCampos();
             // abrirUsuarioPrincipal();
         } catch (Exception e) {
             mostrarMensaje("Error al actualizar: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
@@ -128,27 +102,11 @@ public GesCatalogoEditControlador() {
     }
 
     private void abrirMenuPrincipal() {
-        GesCatalogoPrincipalControlador gesUsuarioPrincipal = new GesCatalogoPrincipalControlador(usuario);
         view.dispose();
-        gesUsuarioPrincipal.iniciarCatalogoPrincipal();
     }
 
-    public void iniciarLogin() {
-        LogInControlador loginController = new LogInControlador();
-        view.dispose();
-        loginController.iniciarLogin();
-    }
 
-    private void limpiarCampos() {
-        view.txt_tituloEditLibro.setText("");
-        view.txt_ISBNeditLibro.setText("");
-        view.txt_idiomaEditLibro.setText("");
-        view.txt_descripcionEditLibro.setText("");
-        view.txt_numPaginasEditLibro.setText("");
-        //view.listaAutores.setText("");
-        //view.listaCategorias.setText();
-    }
-     private void mostrarMensaje(String mensaje, String titulo, int tipo) {
+    private void mostrarMensaje(String mensaje, String titulo, int tipo) {
         JOptionPane.showMessageDialog(view, mensaje, titulo, tipo);
     }
 }

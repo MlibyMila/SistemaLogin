@@ -10,12 +10,12 @@ import VistaNew.*;
  *
  * @author Milagritos
  */
-public class CatalogoPrincipal extends javax.swing.JFrame {
+public class MenuCatalogo extends javax.swing.JFrame {
 
     /**
      * Creates new form plantillaMenu
      */
-    public CatalogoPrincipal() {
+    public MenuCatalogo() {
         initComponents();
     }
 
@@ -47,9 +47,8 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        txtEmailUsuario = new javax.swing.JTextField();
-        txtNombreUsuario = new javax.swing.JTextField();
+        txt_bienvenidaUsuario = new javax.swing.JLabel();
+        txt_emailUsuario = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         table_mostrarLibros = new javax.swing.JTable();
         btn_añadirLibro = new javax.swing.JButton();
@@ -60,7 +59,6 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Gestión de Catálogo");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -72,7 +70,6 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Biblioteca Central ");
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
@@ -83,17 +80,14 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
         jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/web.png"))); // NOI18N
 
         btn_GestorUsuario.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
-        btn_GestorUsuario.setForeground(new java.awt.Color(0, 0, 0));
         btn_GestorUsuario.setText("Gestión de Usuario");
         btn_GestorUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btn_gestorCatalogo.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
-        btn_gestorCatalogo.setForeground(new java.awt.Color(0, 0, 0));
         btn_gestorCatalogo.setText("Gestión de Catálogo");
         btn_gestorCatalogo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         btn_gestorAutores.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
-        btn_gestorAutores.setForeground(new java.awt.Color(0, 0, 0));
         btn_gestorAutores.setText("Gestión de Autores");
         btn_gestorAutores.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_gestorAutores.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +97,6 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
         });
 
         btn_gestorPrestamos.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
-        btn_gestorPrestamos.setForeground(new java.awt.Color(0, 0, 0));
         btn_gestorPrestamos.setText("Gestión de Préstamos");
         btn_gestorPrestamos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_gestorPrestamos.addActionListener(new java.awt.event.ActionListener() {
@@ -200,22 +193,17 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Lucida Sans", 1, 16)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Sistema de Gestion Bibliotecaria ");
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/people.png"))); // NOI18N
 
-        jLabel28.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel28.setFont(new java.awt.Font("Book Antiqua", 1, 13)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel28.setText(" ¡Bienvenido al Sistema!");
+        txt_bienvenidaUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        txt_bienvenidaUsuario.setFont(new java.awt.Font("Book Antiqua", 1, 13)); // NOI18N
+        txt_bienvenidaUsuario.setText(" ¡Bienvenido al Sistema!");
 
-        txtEmailUsuario.setForeground(new java.awt.Color(51, 51, 51));
-        txtEmailUsuario.setText("Nombre");
-
-        txtNombreUsuario.setForeground(new java.awt.Color(51, 51, 51));
-        txtNombreUsuario.setText("Correo");
-        txtNombreUsuario.setDisabledTextColor(new java.awt.Color(153, 153, 153));
+        txt_emailUsuario.setBackground(new java.awt.Color(255, 255, 255));
+        txt_emailUsuario.setFont(new java.awt.Font("Book Antiqua", 1, 13)); // NOI18N
+        txt_emailUsuario.setText(" ¡Bienvenido al Sistema!");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -226,14 +214,11 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 525, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel28)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtEmailUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtNombreUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                    .addComponent(txt_bienvenidaUsuario)
+                    .addComponent(txt_emailUsuario))
+                .addGap(50, 50, 50)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -243,19 +228,14 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel28)
-                            .addComponent(txtEmailUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel2)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(txt_bienvenidaUsuario)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_emailUsuario))
+                    .addComponent(jLabel3)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(jLabel2)))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         table_mostrarLibros.setModel(new javax.swing.table.DefaultTableModel(
@@ -279,7 +259,6 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Gestión de Catálogo");
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
@@ -325,7 +304,7 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
                             .addGap(135, 135, 135)
                             .addComponent(btn_desabilitarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 784, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -391,32 +370,34 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CatalogoPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuCatalogo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CatalogoPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuCatalogo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CatalogoPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuCatalogo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CatalogoPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuCatalogo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CatalogoPrincipal().setVisible(true);
+                new MenuCatalogo().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btn_EditarLibro;
-    private javax.swing.JButton btn_GestorUsuario;
+    public javax.swing.JButton btn_GestorUsuario;
     public javax.swing.JButton btn_añadirLibro;
     public javax.swing.JButton btn_desabilitarLibro;
     private javax.swing.JButton btn_gestorAutores;
-    private javax.swing.JButton btn_gestorCatalogo;
+    public javax.swing.JButton btn_gestorCatalogo;
     private javax.swing.JButton btn_gestorPrestamos;
     public javax.swing.JButton btn_salir;
     private javax.swing.JLabel jLabel1;
@@ -424,7 +405,6 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
@@ -438,7 +418,7 @@ public class CatalogoPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTable table_mostrarLibros;
-    public javax.swing.JTextField txtEmailUsuario;
-    public javax.swing.JTextField txtNombreUsuario;
+    public javax.swing.JLabel txt_bienvenidaUsuario;
+    public javax.swing.JLabel txt_emailUsuario;
     // End of variables declaration//GEN-END:variables
 }

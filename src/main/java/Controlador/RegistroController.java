@@ -1,4 +1,4 @@
-package ControladorNew;
+package Controlador;
 
 import Modelo.Usuario;
 import Service.UsuarioService;
