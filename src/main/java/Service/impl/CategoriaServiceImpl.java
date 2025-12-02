@@ -1,25 +1,20 @@
 package Service.impl;
 
+import Dao.CategoriaDao;
 import Modelo.Categoria;
 import Service.CategoriaService;
 import java.util.List;
-import Dao.CategoriaDao;
 
 public class CategoriaServiceImpl implements CategoriaService {
-    private final CategoriaDao categoriaDao;
 
-    public CategoriaServiceImpl(CategoriaDao categoriaDao) {
-        this.categoriaDao = categoriaDao;
-    }
+    private CategoriaDao categoriaDao;
 
-    @Override
-    public void registarCategoria(Categoria categoria) {
-        categoriaDao.registrarCategoria(categoria);
+    public CategoriaServiceImpl() {
+        this.categoriaDao = new CategoriaDao();
     }
 
     @Override
     public List<Categoria> mostrarCategoria() {
         return categoriaDao.mostrarCategoria();
     }
-
 }

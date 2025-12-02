@@ -1,3 +1,5 @@
+package pruebas;
+
 
 import Controlador.LogInControlador;
 

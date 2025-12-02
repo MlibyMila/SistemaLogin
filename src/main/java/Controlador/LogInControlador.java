@@ -33,13 +33,13 @@ public class LogInControlador {
     }
 
     private void login() {
-        // String email = vista.txt_usuario.getText();
-        // String password = new String(vista.txt_password.getPassword());
-        String email = "vazu@test.com";
-        String password = "vazu";
+         String email = vista.txt_usuario.getText();
+         String password = new String(vista.txt_password.getPassword());
+//        String email = "ab@gmail.com";
+//        String password = "123456";
 
         ValidacionesLogeoRegistro validacionesLogeoRegistro = new ValidacionesLogeoRegistro();
-        
+
         if (!validacionesLogeoRegistro.validarCampo(email, password)) {
             return;
         }
@@ -55,7 +55,6 @@ public class LogInControlador {
         }
     }
 
-    
     private void abrirVentanaPrincipal(Usuario usuario) {
         vista.dispose();
         new MenuController(usuario).iniciarMenu();
