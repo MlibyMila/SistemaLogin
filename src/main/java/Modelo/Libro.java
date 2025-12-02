@@ -16,7 +16,6 @@ public class Libro {
     private String descripcion;
     private LocalDateTime fechaCreacion;
     private boolean estado;
-    private int idCategoria;
     private Categoria categoria;
     private List<Autor> autores;
     private List<Ejemplar> ejemplares;
@@ -120,13 +119,5 @@ public class Libro {
 
     public void setEjemplares(List<Ejemplar> ejemplares) {
         this.ejemplares = ejemplares;
-    }
-
-    public int getIdCategoria() {
-        return idCategoria;
-    }
-
-    public void setIdCategoria(int idCategoria) {
-        this.idCategoria = idCategoria;
     }
 }

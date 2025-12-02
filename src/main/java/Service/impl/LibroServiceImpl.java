@@ -24,25 +24,22 @@ public class LibroServiceImpl implements LibroService {
     }
 
     @Override
-    public void registrarLibro(Libro libro) {
-        libroDao.registrarLibro(libro);
+    public void registrarLibro() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public void desavilitarLibro(String ISBN) {
-        // CORREGIDO: Llamamos al DAO
-        libroDao.desavilitarLibro(ISBN);
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public Libro buscarLibroPorISBN(String isbn) {
-        // CORREGIDO: Llamamos al DAO
-        return libroDao.buscarLibroPorISBN(isbn);
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public void editarLibro(Libro libro) {
-        // CORREGIDO: Llamamos al DAO
-        libroDao.editarLibro(libro);
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

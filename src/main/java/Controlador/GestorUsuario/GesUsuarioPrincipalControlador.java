@@ -3,24 +3,23 @@ package Controlador.GestorUsuario;
 import Modelo.Usuario;
 import Service.UsuarioService;
 import Service.impl.UsuarioServiceImpl;
-import VistaNew.Usuario.MenuPrestamo;
+import VistaNew.Usuario.MenuUsuario;
 
 import java.util.List;
 
 import javax.swing.table.DefaultTableModel;
 
 import Controlador.LogInControlador;
-import javax.swing.JOptionPane;
 
 public final class GesUsuarioPrincipalControlador {
 
-    private MenuPrestamo view;
+    private MenuUsuario view;
     private UsuarioService service;
     private Usuario usuario;
     private DefaultTableModel model;
 
     public GesUsuarioPrincipalControlador(Usuario usuario) {
-        this.view = new MenuPrestamo();
+        this.view = new MenuUsuario();
         this.service = new UsuarioServiceImpl();
         this.usuario = usuario;
         this.cargarUsuario();
@@ -46,20 +45,20 @@ public final class GesUsuarioPrincipalControlador {
     }
 
     public void initTablaUsuario() {
-        String[] header = {"ID", "Nombres", "Apellidos", "Email", "Telefono", "Direccion", "Estado"};
+        String[] header = { "ID", "Nombres", "Apellidos", "Email", "Telefono", "Direccion", "Estado" };
         model = new DefaultTableModel(header, 0);
         view.table_mostrarUsuarios.setModel(model);
 
         List<Usuario> listaUsuarios = service.mostrarUsuario();
         for (Usuario usuario : listaUsuarios) {
-            model.addRow(new Object[]{
-                usuario.getIdUsuario(),
-                usuario.getNombres(),
-                usuario.getApellidos(),
-                usuario.getEmail(),
-                usuario.getTelefono(),
-                usuario.getDireccion(),
-                usuario.isEstado() ? "Activo" : "Inactivo",});
+            model.addRow(new Object[] {
+                    usuario.getIdUsuario(),
+                    usuario.getNombres(),
+                    usuario.getApellidos(),
+                    usuario.getEmail(),
+                    usuario.getTelefono(),
+                    usuario.getDireccion(),
+                    usuario.isEstado() ? "Activo" : "Inactivo", });
         }
         view.table_mostrarUsuarios.setModel(model);
     }
@@ -82,21 +81,10 @@ public final class GesUsuarioPrincipalControlador {
     }
 
     public void editarUsuario() {
-        int filaSeleccionada = view.table_mostrarUsuarios.getSelectedRow();
-
-        if (filaSeleccionada == -1) {
-            JOptionPane.showMessageDialog(view, "Debe seleccionar un usuario de la tabla para editar.");
-            return;
-        }
-        int idUsuario = (int) view.table_mostrarUsuarios.getValueAt(filaSeleccionada, 0);
-        Usuario usuarioSeleccionado = service.buscarUsuarioPorId(idUsuario);
-        if (usuarioSeleccionado!= null){
-            GesUsuarioEditControlador editControlador = new GesUsuarioEditControlador(usuarioSeleccionado);
-             editControlador.cargarDatosDeUsuario();
+        Usuario usuarioSeleccionado = obtenerUsuarioTabla();
+        GesUsuarioEditControlador editControlador = new GesUsuarioEditControlador(usuarioSeleccionado);
+        editControlador.cargarDatosDeUsuario();
         editControlador.iniciarActulizacion();
-        }else{
-            JOptionPane.showMessageDialog(view, "Error no se puede recuperar la información");
-        }
     }
 
     public void desactivarUsuario() {

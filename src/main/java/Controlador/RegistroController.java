@@ -100,7 +100,7 @@ public class RegistroController {
         if (campo == null || campo.trim().isEmpty()) {
             return false;
         }
-        String formatName = "^[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]{2,}$";
+        String formatName = "^[A-Za-z]{2,}$";
         Pattern patron = Pattern.compile(formatName);
         Matcher confirmar = patron.matcher(campo.trim());
         return confirmar.matches();

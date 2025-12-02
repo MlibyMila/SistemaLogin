@@ -1,6 +1,5 @@
 package Controlador.GestorUsuario;
 
-import org.mindrot.jbcrypt.BCrypt;
 import Modelo.Usuario;
 import Service.UsuarioService;
 import Service.impl.UsuarioServiceImpl;
@@ -51,12 +50,7 @@ public class GesUsuarioEditControlador {
         usuarioEdicion.setNombres(nombres);
         usuarioEdicion.setApellidos(apellidos);
         usuarioEdicion.setEmail(email);
-        try {
-            usuarioEdicion.setTelefono(Integer.parseInt(telefono));
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(view, "El teléfono debe ser numérico", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+        usuarioEdicion.setTelefono(Integer.parseInt(telefono));
         usuarioEdicion.setDireccion(direccion);
 
         ValidacionesUsuario validacionesUsuario = new ValidacionesUsuario();
@@ -66,16 +60,14 @@ public class GesUsuarioEditControlador {
         }
 
         if (!password.isEmpty()) {
-            String passwordHashed = BCrypt.hashpw(password, BCrypt.gensalt());
-            usuarioEdicion.setPasswordHash(passwordHashed);
+            usuarioEdicion.setPasswordHash(password);
         }
-
         try {
             service.actualizarUsuario(usuarioEdicion);
             validacionesUsuario.mostrarMensaje("Usuario actualizado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
             limpiarCampos();
         } catch (Exception e) {
-            validacionesUsuario.mostrarMensaje("Error al actualizar: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+           validacionesUsuario.mostrarMensaje("Error al actualizar: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 

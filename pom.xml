@@ -8,7 +8,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>17</maven.compiler.release>
-        <exec.mainClass>pruebas.main</exec.mainClass>
+        <exec.mainClass>proyecto.Main</exec.mainClass>
     </properties>
    <build>
         <resources>
@@ -61,5 +61,4 @@
             <version>0.4</version>
         </dependency>
     </dependencies>
-    <name>SysBiblioteca</name>
 </project>
